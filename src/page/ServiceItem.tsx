@@ -1,22 +1,229 @@
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { Header } from "../components/Header";
+import { SliderBanner } from "./SliderBanner";
+import { ArrowLink } from "../shared/icons/ArrowLink";
+import { Direction } from "../components/Direction";
+import { DirectionItem } from "../components/DirectionItem";
+
+export interface Direction {
+  title: string;
+  price: number;
+  desc?: string;
+  bage?: {
+    title: string;
+    value: string;
+  };
+}
+
+export interface DirectionSection {
+  title: string;
+
+  directions: Direction[];
+
+  subcategory?: {
+    title: string;
+    moreDetailsBtn: string;
+    directions: Direction[];
+  };
+}
+
+const arr: DirectionSection[] = [
+  {
+    title: "Чистки",
+
+    directions: [
+      {
+        title: "Комбинированная",
+        desc: "(механическая + ультразвуковая)",
+        price: 5500,
+      },
+      {
+        title: "Комбинированная",
+        desc: "(механическая + ультразвуковая)",
+        price: 5500,
+      },
+      {
+        title: "Комбинированная",
+        desc: "(механическая + ультразвуковая)",
+        price: 5500,
+      },
+      {
+        title: "Комбинированная",
+        price: 5500,
+      },
+    ],
+
+    subcategory: {
+      title: "Лазерная эпиляция Candela GentleLase Pro-U для женщин",
+
+      moreDetailsBtn: "text...",
+
+      directions: [
+        {
+          title: "Комбинированная",
+          desc: "(механическая + ультразвуковая)",
+          price: 5500,
+        },
+        {
+          title: "Комбинированная",
+          desc: "(механическая + ультразвуковая)",
+          price: 5500,
+        },
+        {
+          title: "Комбинированная",
+          desc: "(механическая + ультразвуковая)",
+          price: 5500,
+        },
+        {
+          title: "Комбинированная",
+          price: 5500,
+        },
+      ],
+    },
+  },
+  {
+    title: "Пилинги",
+
+    directions: [
+      {
+        title: "Комбинированная",
+        desc: "(механическая + ультразвуковая)",
+        price: 5500,
+      },
+      {
+        title: "Комбинированная",
+        desc: "(механическая + ультразвуковая)",
+        price: 5500,
+      },
+      {
+        title: "Комбинированная",
+        desc: "(механическая + ультразвуковая)",
+        price: 5500,
+        bage: {
+          title: "sale",
+          value: "15%",
+        },
+      },
+      {
+        title: "Комбинированная",
+        price: 5500,
+        bage: {
+          title: "new",
+          value: "new",
+        },
+      },
+    ],
+  },
+];
+
+const accordions = [
+  {
+    title: "Комбинированная",
+    desc: "(механическая + ультразвуковая)",
+    price: 5500,
+
+    content:
+      "(Эксклюзивный уход с инновационной сывороткой с коллагеном. Моментально попадает в дерму и активно работает изнутри, замедляя процессы старения в коже. Применение пенной маски с уникальным составом, сделает процедуру незабываемой и дополнительно поможет избавится от пигментации. В результате моментальное увлажнение на 210%, сокращение морщин на 20%, осветление пигментации, восстановление плотности, тургора и эластичности. Видимый результат после первй процедуры с последующим усилением эффекта)",
+  },
+  {
+    title: "Комбинированная",
+    desc: "(механическая + ультразвуковая)",
+    price: 5500,
+    content:
+      "(Эксклюзивный уход с инновационной сывороткой с коллагеном. Моментально попадает в дерму и активно работает изнутри, замедляя процессы старения в коже. Применение пенной маски с уникальным составом, сделает процедуру незабываемой и дополнительно поможет избавится от пигментации. В результате моментальное увлажнение на 210%, сокращение морщин на 20%, осветление пигментации, восстановление плотности, тургора и эластичности. Видимый результат после первй процедуры с последующим усилением эффекта)",
+  },
+  {
+    title: "Комбинированная",
+    desc: "(механическая + ультразвуковая)",
+    price: 5500,
+    content:
+      "(Эксклюзивный уход с инновационной сывороткой с коллагеном. Моментально попадает в дерму и активно работает изнутри, замедляя процессы старения в коже. Применение пенной маски с уникальным составом, сделает процедуру незабываемой и дополнительно поможет избавится от пигментации. В результате моментальное увлажнение на 210%, сокращение морщин на 20%, осветление пигментации, восстановление плотности, тургора и эластичности. Видимый результат после первй процедуры с последующим усилением эффекта)",
+  },
+  {
+    title: "Комбинированная",
+    desc: "(механическая + ультразвуковая)",
+    price: 5500,
+    content:
+      "(Эксклюзивный уход с инновационной сывороткой с коллагеном. Моментально попадает в дерму и активно работает изнутри, замедляя процессы старения в коже. Применение пенной маски с уникальным составом, сделает процедуру незабываемой и дополнительно поможет избавится от пигментации. В результате моментальное увлажнение на 210%, сокращение морщин на 20%, осветление пигментации, восстановление плотности, тургора и эластичности. Видимый результат после первй процедуры с последующим усилением эффекта)",
+  },
+  {
+    title: "Комбинированная",
+    desc: "(механическая + ультразвуковая)",
+    price: 5500,
+    content:
+      "(Эксклюзивный уход с инновационной сывороткой с коллагеном. Моментально попадает в дерму и активно работает изнутри, замедляя процессы старения в коже. Применение пенной маски с уникальным составом, сделает процедуру незабываемой и дополнительно поможет избавится от пигментации. В результате моментальное увлажнение на 210%, сокращение морщин на 20%, осветление пигментации, восстановление плотности, тургора и эластичности. Видимый результат после первй процедуры с последующим усилением эффекта)",
+  },
+];
 
 const ServiceItem = () => {
-  const { id } = useParams();
+  //   const { id } = useParams();
 
   return (
-    <main className="bg-[#F4F4F4] min-h-screen">
+    <main className="min-h-screen bg-[#F4F4F4]">
       <Header />
 
-      <section className="pt-[48px]">
+      <div className="pt-[48px]">
         <div className="container">
-          <h2 className="font-semibold text-[80px] leading-[88px] text-center second-family pb-[40px]">
-            Косметология
-          </h2>
+          <section className="pb-[180px]">
+            <h2 className="second-family pb-[40px] text-center text-[80px] font-semibold leading-[88px]">
+              Косметология
+            </h2>
 
-          <div></div>
+            <div className="pb-[39px]">
+              <SliderBanner />
+            </div>
+
+            <div className="grid grid-cols-2 gap-[18px]">
+              <button className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]">
+                Ботулотоксины
+                <ArrowLink />
+              </button>
+              <button className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]">
+                Биоревитализация
+                <ArrowLink />
+              </button>
+              <button className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]">
+                Коллагенотерапия
+                <ArrowLink />
+              </button>
+              <button className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]">
+                Мезотерапия
+                <ArrowLink />
+              </button>
+              <button className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]">
+                Полимолочная кислота
+                <ArrowLink />
+              </button>
+              <button className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]">
+                Контурная пластика
+                <ArrowLink />
+              </button>
+            </div>
+          </section>
+
+          <div className="flex flex-col gap-[180px]">
+            {arr.map((el, idx) => {
+              return <Direction key={idx} el={el} />;
+            })}
+
+            <section>
+              <h2 className="second-family pb-[42px] text-center text-[80px] font-semibold leading-[88px]">
+                Косметологические уходы
+              </h2>
+
+              <div>
+                <h4 className="pb-[42px] text-[48px] leading-[57px]">QMS</h4>
+
+                <div>
+                  {accordions.map((el, idx) => {
+                    return <DirectionItem key={idx} item={el} />;
+                  })}
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
-      </section>
+      </div>
     </main>
   );
 };

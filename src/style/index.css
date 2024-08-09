@@ -11,3 +11,41 @@ body {
 .second-family {
   font-family: "Cormorant", sans-serif;
 }
+
+.slick-dots {
+  bottom: 18px !important; /* Сдвиг точек ближе к низу */
+  padding: 6px 10px !important; /* Сдвиг точек ближе к низу */
+  background: #e5e2e4;
+  display: flex !important;
+  width: fit-content !important;
+  left: 50%;
+  gap: 8px;
+  transform: translate(-50%, 0);
+  border-radius: 100px;
+}
+
+.slick-dots li button:before {
+  background: #aeaeae !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  width: 14px !important;
+  border-radius: 100px;
+  opacity: 1 !important;
+  height: 14px !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  top: 50% !important;
+}
+
+.slick-dots li.slick-active button:before {
+  background: #5c5c5c !important; /* Цвет активной точки */
+  opacity: 1 !important;
+}
+
+.slick-dots li {
+  /* width: auto !important;
+  height: auto !important; */
+  margin: 0 !important;
+  width: 14px !important;
+  height: 14px !important;
+}
