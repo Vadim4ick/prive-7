@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: #111111;
+
+  font-family: "Montserrat", sans-serif;
+}
+
+.second-family {
+  font-family: "Cormorant", sans-serif;
+}
