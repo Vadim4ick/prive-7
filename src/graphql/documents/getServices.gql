@@ -1,0 +1,13 @@
+query GetServices {
+  services {
+    id
+    title
+    tags
+
+    img {
+      id
+      width
+      height
+    }
+  }
+}
