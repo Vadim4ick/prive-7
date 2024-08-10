@@ -33,7 +33,7 @@ const DirectionItem = ({ item }: { item: DirectionType }) => {
           )}
         </div>
 
-        <div className="flex flex-col items-end justify-end">
+        <div className="flex flex-col items-end justify-start">
           <span className="text-[28px] font-medium leading-[33px]">
             {item.price} ₽
           </span>
