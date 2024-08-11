@@ -5,14 +5,17 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 const Modal = ({
   description,
   title,
+  titleFont = "main",
 }: {
   description: string;
   title: string;
+  titleFont?: "second" | "main";
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,7 +29,14 @@ const Modal = ({
 
       <DialogContent className="p w-full max-w-[1200px] items-center justify-center rounded-none border-none bg-transparent px-[44px]">
         <div className="flex w-full flex-col items-center justify-center gap-[36px] rounded-[8px] bg-white px-[48px] pb-[36px] pt-[48px]">
-          <DialogTitle className="second-family max-w-[768px] text-center text-[48px] font-semibold leading-[52px] text-[#111111]">
+          <DialogTitle
+            className={cn(
+              "max-w-[768px] text-center text-[48px] font-semibold leading-[52px] text-[#111111]",
+              {
+                "second-family": titleFont === "second",
+              },
+            )}
+          >
             {title}
           </DialogTitle>
 

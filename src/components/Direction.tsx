@@ -59,6 +59,7 @@ const Direction = memo(
 
                   {el.subDirections_id.moreDetails && (
                     <Modal
+                      titleFont="second"
                       title={el.subDirections_id.title}
                       description={el.subDirections_id.moreDetails}
                     />
