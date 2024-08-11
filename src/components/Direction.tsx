@@ -1,6 +1,7 @@
 import { GetServicesItemQuery } from "@/graphql/__generated__";
 import { DirectionItem } from "./DirectionItem";
 import { memo, useEffect } from "react";
+import { Modal } from "./Modal";
 
 const Direction = memo(
   ({
@@ -30,9 +31,7 @@ const Direction = memo(
             </h2>
 
             {el.item.moreDetails && (
-              <button className="h-fit self-end rounded-full bg-[#DEDEDE] px-[14px] py-[10px] font-medium">
-                Подробнее
-              </button>
+              <Modal title={el.item.title} description={el.item.moreDetails} />
             )}
           </div>
 
@@ -59,9 +58,10 @@ const Direction = memo(
                   </h3>
 
                   {el.subDirections_id.moreDetails && (
-                    <button className="h-fit self-end rounded-full bg-[#DEDEDE] px-[14px] py-[10px] font-medium">
-                      Подробнее
-                    </button>
+                    <Modal
+                      title={el.subDirections_id.title}
+                      description={el.subDirections_id.moreDetails}
+                    />
                   )}
                 </div>
 
