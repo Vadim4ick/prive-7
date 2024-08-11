@@ -3,17 +3,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { AccordionBlockFragment } from "@/graphql/__generated__";
 import { ArrowAccordion } from "@/shared/icons/ArrowAccordion";
 import { memo } from "react";
 
 interface Props {
-  item: {
-    id: string | number;
-    title: string;
-    desc: string;
-    price: number;
-    content: string;
-  };
+  item: AccordionBlockFragment;
 }
 
 const AccordionServices = memo((props: Props) => {
@@ -30,7 +25,7 @@ const AccordionServices = memo((props: Props) => {
           <div className="flex flex-col justify-between gap-1">
             <div className="flex gap-2">
               <p className="text-[32px] font-medium leading-[38px]">
-                {item.title}
+                {item.accordionItems_id.directionItem.title}
               </p>
 
               {/* {item.bage && (
@@ -40,9 +35,9 @@ const AccordionServices = memo((props: Props) => {
               )} */}
             </div>
 
-            {item.desc && (
+            {item.accordionItems_id.directionItem.desc && (
               <span className="text-[24px] leading-[28px] text-[#656565]">
-                {item.desc}
+                {item.accordionItems_id.directionItem.desc}
               </span>
             )}
           </div>
@@ -50,7 +45,7 @@ const AccordionServices = memo((props: Props) => {
 
         <div className="flex flex-col items-end justify-end">
           <span className="text-[28px] font-medium leading-[33px]">
-            {item.price} ₽
+            {item.accordionItems_id.directionItem.price} ₽
           </span>
           {/* {item.bage && (
             <span className="text-[24px] font-medium leading-[28px] text-[#8B8B8B] line-through">
@@ -61,7 +56,7 @@ const AccordionServices = memo((props: Props) => {
       </AccordionTrigger>
 
       <AccordionContent className="px-[62px] pb-[90px] text-[28px] leading-[33px] text-[#494949]">
-        {item.content}
+        {item.accordionItems_id.value}
       </AccordionContent>
     </AccordionItem>
   );

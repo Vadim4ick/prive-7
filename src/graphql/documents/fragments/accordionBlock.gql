@@ -1,0 +1,11 @@
+fragment AccordionBlock on accordionBlock_accordionItems {
+  id
+  accordionItems_id {
+    id
+    directionItem {
+      ...ServiceFragment
+    }
+
+    value
+  }
+}

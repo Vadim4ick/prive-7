@@ -1,14 +1,14 @@
-import { GetServicesItemQuery } from "@/graphql/__generated__";
-import { DirectionItem } from "./DirectionItem";
+import { DirectionsFragmentFragment } from "@/graphql/__generated__";
 import { memo, useEffect } from "react";
 import { Modal } from "./Modal";
+import { DirectionItem } from "./DirectionItem";
 
 const Direction = memo(
   ({
     el,
     refs,
   }: {
-    el: GetServicesItemQuery["services_by_id"]["serviceItemDirections"][0];
+    el: DirectionsFragmentFragment;
     refs: React.MutableRefObject<HTMLElement[]>;
   }) => {
     useEffect(() => {
@@ -27,23 +27,26 @@ const Direction = memo(
             <div className="flex-1"></div>
 
             <h2 className="second-family text-center text-[80px] font-semibold leading-[88px]">
-              {el.item.title}
+              {el.title}
             </h2>
 
-            {el.item.moreDetails && (
-              <Modal title={el.item.title} description={el.item.moreDetails} />
+            {el.moreDetails && (
+              <Modal title={el.title} description={el.moreDetails} />
             )}
           </div>
 
           <div className="rounded-t-3xl bg-white">
-            {el.item.items.map((item) => {
-              return <DirectionItem key={item.id} item={item} />;
-            })}
+            {el &&
+              el.items.map((item) => {
+                return (
+                  <DirectionItem key={item.id} item={item.directionItem_id} />
+                );
+              })}
           </div>
         </div>
 
-        {el.item.subDirections &&
-          el.item.subDirections.map((el) => {
+        {el.subDirections &&
+          el.subDirections.map((el) => {
             return (
               <div
                 data-section="true"
@@ -71,7 +74,7 @@ const Direction = memo(
                     return (
                       <DirectionItem
                         key={item.directionItem_id.id}
-                        item={item}
+                        item={item.directionItem_id}
                       />
                     );
                   })}

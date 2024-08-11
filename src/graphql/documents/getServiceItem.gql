@@ -6,44 +6,11 @@ query GetServicesItem($id: ID!) {
       id
       item {
         ... on directions {
-          id
-          title
-          moreDetails
+          ...DirectionsFragment
+        }
 
-          items {
-            id
-
-            directionItem_id {
-              id
-              title
-              desc
-              price
-              sale
-              is_new
-            }
-          }
-
-          subDirections {
-            id
-
-            subDirections_id {
-              id
-              title
-              moreDetails
-
-              items {
-                id
-                directionItem_id {
-                  id
-                  title
-                  desc
-                  price
-                  sale
-                  is_new
-                }
-              }
-            }
-          }
+        ... on accordionsSection {
+          ...AccordionsFragment
         }
       }
     }

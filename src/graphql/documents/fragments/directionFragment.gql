@@ -1,0 +1,30 @@
+fragment DirectionsFragment on directions {
+  id
+  title
+  moreDetails
+
+  items {
+    id
+
+    directionItem_id {
+      ...ServiceFragment
+    }
+  }
+
+  subDirections {
+    id
+
+    subDirections_id {
+      id
+      title
+      moreDetails
+
+      items {
+        id
+        directionItem_id {
+          ...ServiceFragment
+        }
+      }
+    }
+  }
+}
