@@ -30,10 +30,170 @@ export enum EventEnum {
 
 export type Query = {
   readonly __typename?: 'Query';
+  readonly directionItem: ReadonlyArray<DirectionItem>;
+  readonly directionItem_aggregated: ReadonlyArray<DirectionItem_Aggregated>;
+  readonly directionItem_by_id: Maybe<DirectionItem>;
+  readonly directionItem_by_version: Maybe<Version_DirectionItem>;
+  readonly directions: ReadonlyArray<Directions>;
+  readonly directions_aggregated: ReadonlyArray<Directions_Aggregated>;
+  readonly directions_by_id: Maybe<Directions>;
+  readonly directions_by_version: Maybe<Version_Directions>;
+  readonly directions_directionItem: ReadonlyArray<Directions_DirectionItem>;
+  readonly directions_directionItem_aggregated: ReadonlyArray<Directions_DirectionItem_Aggregated>;
+  readonly directions_directionItem_by_id: Maybe<Directions_DirectionItem>;
+  readonly directions_directionItem_by_version: Maybe<Version_Directions_DirectionItem>;
+  readonly directions_subDirections: ReadonlyArray<Directions_SubDirections>;
+  readonly directions_subDirections_aggregated: ReadonlyArray<Directions_SubDirections_Aggregated>;
+  readonly directions_subDirections_by_id: Maybe<Directions_SubDirections>;
+  readonly directions_subDirections_by_version: Maybe<Version_Directions_SubDirections>;
   readonly services: ReadonlyArray<Services>;
   readonly services_aggregated: ReadonlyArray<Services_Aggregated>;
   readonly services_by_id: Maybe<Services>;
   readonly services_by_version: Maybe<Version_Services>;
+  readonly services_serviceItemDirections: ReadonlyArray<Services_ServiceItemDirections>;
+  readonly services_serviceItemDirections_aggregated: ReadonlyArray<Services_ServiceItemDirections_Aggregated>;
+  readonly services_serviceItemDirections_by_id: Maybe<Services_ServiceItemDirections>;
+  readonly services_serviceItemDirections_by_version: Maybe<Version_Services_ServiceItemDirections>;
+  readonly subDirections: ReadonlyArray<SubDirections>;
+  readonly subDirections_aggregated: ReadonlyArray<SubDirections_Aggregated>;
+  readonly subDirections_by_id: Maybe<SubDirections>;
+  readonly subDirections_by_version: Maybe<Version_SubDirections>;
+  readonly subDirections_directionItem: ReadonlyArray<SubDirections_DirectionItem>;
+  readonly subDirections_directionItem_aggregated: ReadonlyArray<SubDirections_DirectionItem_Aggregated>;
+  readonly subDirections_directionItem_by_id: Maybe<SubDirections_DirectionItem>;
+  readonly subDirections_directionItem_by_version: Maybe<Version_SubDirections_DirectionItem>;
+};
+
+
+export type QueryDirectionItemArgs = {
+  filter: InputMaybe<DirectionItem_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryDirectionItem_AggregatedArgs = {
+  filter: InputMaybe<DirectionItem_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryDirectionItem_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryDirectionItem_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
+
+export type QueryDirectionsArgs = {
+  filter: InputMaybe<Directions_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryDirections_AggregatedArgs = {
+  filter: InputMaybe<Directions_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryDirections_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryDirections_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
+
+export type QueryDirections_DirectionItemArgs = {
+  filter: InputMaybe<Directions_DirectionItem_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryDirections_DirectionItem_AggregatedArgs = {
+  filter: InputMaybe<Directions_DirectionItem_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryDirections_DirectionItem_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryDirections_DirectionItem_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
+
+export type QueryDirections_SubDirectionsArgs = {
+  filter: InputMaybe<Directions_SubDirections_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryDirections_SubDirections_AggregatedArgs = {
+  filter: InputMaybe<Directions_SubDirections_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryDirections_SubDirections_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryDirections_SubDirections_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
 };
 
 
@@ -69,16 +229,143 @@ export type QueryServices_By_VersionArgs = {
   version: Scalars['String']['input'];
 };
 
+
+export type QueryServices_ServiceItemDirectionsArgs = {
+  filter: InputMaybe<Services_ServiceItemDirections_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryServices_ServiceItemDirections_AggregatedArgs = {
+  filter: InputMaybe<Services_ServiceItemDirections_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryServices_ServiceItemDirections_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryServices_ServiceItemDirections_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
+
+export type QuerySubDirectionsArgs = {
+  filter: InputMaybe<SubDirections_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QuerySubDirections_AggregatedArgs = {
+  filter: InputMaybe<SubDirections_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QuerySubDirections_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySubDirections_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
+
+export type QuerySubDirections_DirectionItemArgs = {
+  filter: InputMaybe<SubDirections_DirectionItem_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QuerySubDirections_DirectionItem_AggregatedArgs = {
+  filter: InputMaybe<SubDirections_DirectionItem_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QuerySubDirections_DirectionItem_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySubDirections_DirectionItem_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
 export type Subscription = {
   readonly __typename?: 'Subscription';
+  readonly directionItem_mutated: Maybe<DirectionItem_Mutated>;
+  readonly directions_directionItem_mutated: Maybe<Directions_DirectionItem_Mutated>;
+  readonly directions_mutated: Maybe<Directions_Mutated>;
+  readonly directions_subDirections_mutated: Maybe<Directions_SubDirections_Mutated>;
   readonly directus_activity_mutated: Maybe<Directus_Activity_Mutated>;
   readonly directus_files_mutated: Maybe<Directus_Files_Mutated>;
   readonly directus_notifications_mutated: Maybe<Directus_Notifications_Mutated>;
+  readonly directus_permissions_mutated: Maybe<Directus_Permissions_Mutated>;
   readonly directus_presets_mutated: Maybe<Directus_Presets_Mutated>;
   readonly directus_roles_mutated: Maybe<Directus_Roles_Mutated>;
   readonly directus_shares_mutated: Maybe<Directus_Shares_Mutated>;
   readonly directus_users_mutated: Maybe<Directus_Users_Mutated>;
   readonly services_mutated: Maybe<Services_Mutated>;
+  readonly services_serviceItemDirections_mutated: Maybe<Services_ServiceItemDirections_Mutated>;
+  readonly subDirections_directionItem_mutated: Maybe<SubDirections_DirectionItem_Mutated>;
+  readonly subDirections_mutated: Maybe<SubDirections_Mutated>;
+};
+
+
+export type SubscriptionDirectionItem_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionDirections_DirectionItem_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionDirections_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionDirections_SubDirections_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
 };
 
 
@@ -93,6 +380,11 @@ export type SubscriptionDirectus_Files_MutatedArgs = {
 
 
 export type SubscriptionDirectus_Notifications_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionDirectus_Permissions_MutatedArgs = {
   event: InputMaybe<EventEnum>;
 };
 
@@ -118,6 +410,21 @@ export type SubscriptionDirectus_Users_MutatedArgs = {
 
 
 export type SubscriptionServices_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionServices_ServiceItemDirections_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionSubDirections_DirectionItem_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionSubDirections_MutatedArgs = {
   event: InputMaybe<EventEnum>;
 };
 
@@ -188,6 +495,283 @@ export type Datetime_Functions = {
   readonly week: Maybe<Scalars['Int']['output']>;
   readonly weekday: Maybe<Scalars['Int']['output']>;
   readonly year: Maybe<Scalars['Int']['output']>;
+};
+
+export type DirectionItem = {
+  readonly __typename?: 'directionItem';
+  readonly desc: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly is_new: Maybe<Scalars['Boolean']['output']>;
+  readonly price: Maybe<Scalars['Int']['output']>;
+  readonly sale: Maybe<Scalars['Int']['output']>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+export type DirectionItem_Aggregated = {
+  readonly __typename?: 'directionItem_aggregated';
+  readonly avg: Maybe<DirectionItem_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<DirectionItem_Aggregated_Fields>;
+  readonly count: Maybe<DirectionItem_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<DirectionItem_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<DirectionItem_Aggregated_Fields>;
+  readonly min: Maybe<DirectionItem_Aggregated_Fields>;
+  readonly sum: Maybe<DirectionItem_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<DirectionItem_Aggregated_Fields>;
+};
+
+export type DirectionItem_Aggregated_Count = {
+  readonly __typename?: 'directionItem_aggregated_count';
+  readonly desc: Maybe<Scalars['Int']['output']>;
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly is_new: Maybe<Scalars['Int']['output']>;
+  readonly price: Maybe<Scalars['Int']['output']>;
+  readonly sale: Maybe<Scalars['Int']['output']>;
+  readonly title: Maybe<Scalars['Int']['output']>;
+};
+
+export type DirectionItem_Aggregated_Fields = {
+  readonly __typename?: 'directionItem_aggregated_fields';
+  readonly id: Maybe<Scalars['Float']['output']>;
+  readonly price: Maybe<Scalars['Float']['output']>;
+  readonly sale: Maybe<Scalars['Float']['output']>;
+};
+
+export type DirectionItem_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<DirectionItem_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<DirectionItem_Filter>>>;
+  readonly desc: InputMaybe<String_Filter_Operators>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly is_new: InputMaybe<Boolean_Filter_Operators>;
+  readonly price: InputMaybe<Number_Filter_Operators>;
+  readonly sale: InputMaybe<Number_Filter_Operators>;
+  readonly title: InputMaybe<String_Filter_Operators>;
+};
+
+export type DirectionItem_Mutated = {
+  readonly __typename?: 'directionItem_mutated';
+  readonly data: Maybe<DirectionItem>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Directions = {
+  readonly __typename?: 'directions';
+  readonly id: Scalars['ID']['output'];
+  readonly items: Maybe<ReadonlyArray<Maybe<Directions_DirectionItem>>>;
+  readonly items_func: Maybe<Count_Functions>;
+  readonly moreDetails: Maybe<Scalars['String']['output']>;
+  readonly subDirections: Maybe<ReadonlyArray<Maybe<Directions_SubDirections>>>;
+  readonly subDirections_func: Maybe<Count_Functions>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+
+export type DirectionsItemsArgs = {
+  filter: InputMaybe<Directions_DirectionItem_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type DirectionsSubDirectionsArgs = {
+  filter: InputMaybe<Directions_SubDirections_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Directions_Aggregated = {
+  readonly __typename?: 'directions_aggregated';
+  readonly avg: Maybe<Directions_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Directions_Aggregated_Fields>;
+  readonly count: Maybe<Directions_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Directions_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Directions_Aggregated_Fields>;
+  readonly min: Maybe<Directions_Aggregated_Fields>;
+  readonly sum: Maybe<Directions_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Directions_Aggregated_Fields>;
+};
+
+export type Directions_Aggregated_Count = {
+  readonly __typename?: 'directions_aggregated_count';
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly items: Maybe<Scalars['Int']['output']>;
+  readonly moreDetails: Maybe<Scalars['Int']['output']>;
+  readonly subDirections: Maybe<Scalars['Int']['output']>;
+  readonly title: Maybe<Scalars['Int']['output']>;
+};
+
+export type Directions_Aggregated_Fields = {
+  readonly __typename?: 'directions_aggregated_fields';
+  readonly id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Directions_DirectionItem = {
+  readonly __typename?: 'directions_directionItem';
+  readonly directionItem_id: Maybe<DirectionItem>;
+  readonly directions_id: Maybe<Directions>;
+  readonly id: Scalars['ID']['output'];
+};
+
+
+export type Directions_DirectionItemDirectionItem_IdArgs = {
+  filter: InputMaybe<DirectionItem_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Directions_DirectionItemDirections_IdArgs = {
+  filter: InputMaybe<Directions_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Directions_DirectionItem_Aggregated = {
+  readonly __typename?: 'directions_directionItem_aggregated';
+  readonly avg: Maybe<Directions_DirectionItem_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Directions_DirectionItem_Aggregated_Fields>;
+  readonly count: Maybe<Directions_DirectionItem_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Directions_DirectionItem_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Directions_DirectionItem_Aggregated_Fields>;
+  readonly min: Maybe<Directions_DirectionItem_Aggregated_Fields>;
+  readonly sum: Maybe<Directions_DirectionItem_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Directions_DirectionItem_Aggregated_Fields>;
+};
+
+export type Directions_DirectionItem_Aggregated_Count = {
+  readonly __typename?: 'directions_directionItem_aggregated_count';
+  readonly directionItem_id: Maybe<Scalars['Int']['output']>;
+  readonly directions_id: Maybe<Scalars['Int']['output']>;
+  readonly id: Maybe<Scalars['Int']['output']>;
+};
+
+export type Directions_DirectionItem_Aggregated_Fields = {
+  readonly __typename?: 'directions_directionItem_aggregated_fields';
+  readonly directionItem_id: Maybe<Scalars['Float']['output']>;
+  readonly directions_id: Maybe<Scalars['Float']['output']>;
+  readonly id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Directions_DirectionItem_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Directions_DirectionItem_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Directions_DirectionItem_Filter>>>;
+  readonly directionItem_id: InputMaybe<DirectionItem_Filter>;
+  readonly directions_id: InputMaybe<Directions_Filter>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+};
+
+export type Directions_DirectionItem_Mutated = {
+  readonly __typename?: 'directions_directionItem_mutated';
+  readonly data: Maybe<Directions_DirectionItem>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Directions_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Directions_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Directions_Filter>>>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly items: InputMaybe<Directions_DirectionItem_Filter>;
+  readonly items_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly moreDetails: InputMaybe<String_Filter_Operators>;
+  readonly subDirections: InputMaybe<Directions_SubDirections_Filter>;
+  readonly subDirections_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly title: InputMaybe<String_Filter_Operators>;
+};
+
+export type Directions_Mutated = {
+  readonly __typename?: 'directions_mutated';
+  readonly data: Maybe<Directions>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Directions_SubDirections = {
+  readonly __typename?: 'directions_subDirections';
+  readonly directions_id: Maybe<Directions>;
+  readonly id: Scalars['ID']['output'];
+  readonly subDirections_id: Maybe<SubDirections>;
+};
+
+
+export type Directions_SubDirectionsDirections_IdArgs = {
+  filter: InputMaybe<Directions_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Directions_SubDirectionsSubDirections_IdArgs = {
+  filter: InputMaybe<SubDirections_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Directions_SubDirections_Aggregated = {
+  readonly __typename?: 'directions_subDirections_aggregated';
+  readonly avg: Maybe<Directions_SubDirections_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Directions_SubDirections_Aggregated_Fields>;
+  readonly count: Maybe<Directions_SubDirections_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Directions_SubDirections_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Directions_SubDirections_Aggregated_Fields>;
+  readonly min: Maybe<Directions_SubDirections_Aggregated_Fields>;
+  readonly sum: Maybe<Directions_SubDirections_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Directions_SubDirections_Aggregated_Fields>;
+};
+
+export type Directions_SubDirections_Aggregated_Count = {
+  readonly __typename?: 'directions_subDirections_aggregated_count';
+  readonly directions_id: Maybe<Scalars['Int']['output']>;
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly subDirections_id: Maybe<Scalars['Int']['output']>;
+};
+
+export type Directions_SubDirections_Aggregated_Fields = {
+  readonly __typename?: 'directions_subDirections_aggregated_fields';
+  readonly directions_id: Maybe<Scalars['Float']['output']>;
+  readonly id: Maybe<Scalars['Float']['output']>;
+  readonly subDirections_id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Directions_SubDirections_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Directions_SubDirections_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Directions_SubDirections_Filter>>>;
+  readonly directions_id: InputMaybe<Directions_Filter>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly subDirections_id: InputMaybe<SubDirections_Filter>;
+};
+
+export type Directions_SubDirections_Mutated = {
+  readonly __typename?: 'directions_subDirections_mutated';
+  readonly data: Maybe<Directions_SubDirections>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
 };
 
 export type Directus_Activity = {
@@ -361,6 +945,28 @@ export type Directus_NotificationsSenderArgs = {
 export type Directus_Notifications_Mutated = {
   readonly __typename?: 'directus_notifications_mutated';
   readonly data: Maybe<Directus_Notifications>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Directus_Permissions = {
+  readonly __typename?: 'directus_permissions';
+  readonly action: Scalars['String']['output'];
+  readonly collection: Scalars['String']['output'];
+  readonly fields: Maybe<ReadonlyArray<Maybe<Scalars['String']['output']>>>;
+  readonly id: Maybe<Scalars['ID']['output']>;
+  readonly permissions: Maybe<Scalars['JSON']['output']>;
+  readonly permissions_func: Maybe<Count_Functions>;
+  readonly policy: Scalars['String']['output'];
+  readonly presets: Maybe<Scalars['JSON']['output']>;
+  readonly presets_func: Maybe<Count_Functions>;
+  readonly validation: Maybe<Scalars['JSON']['output']>;
+  readonly validation_func: Maybe<Count_Functions>;
+};
+
+export type Directus_Permissions_Mutated = {
+  readonly __typename?: 'directus_permissions_mutated';
+  readonly data: Maybe<Directus_Permissions>;
   readonly event: Maybe<EventEnum>;
   readonly key: Scalars['ID']['output'];
 };
@@ -658,8 +1264,8 @@ export type Services = {
   readonly __typename?: 'services';
   readonly id: Scalars['ID']['output'];
   readonly img: Maybe<Directus_Files>;
-  readonly serviceItem: Maybe<Scalars['String']['output']>;
-  readonly serviceItem_func: Maybe<Count_Functions>;
+  readonly serviceItemDirections: Maybe<ReadonlyArray<Maybe<Services_ServiceItemDirections>>>;
+  readonly serviceItemDirections_func: Maybe<Count_Functions>;
   readonly tags: Maybe<Scalars['JSON']['output']>;
   readonly tags_func: Maybe<Count_Functions>;
   readonly title: Maybe<Scalars['String']['output']>;
@@ -668,6 +1274,16 @@ export type Services = {
 
 export type ServicesImgArgs = {
   filter: InputMaybe<Directus_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type ServicesServiceItemDirectionsArgs = {
+  filter: InputMaybe<Services_ServiceItemDirections_Filter>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   page: InputMaybe<Scalars['Int']['input']>;
@@ -693,7 +1309,7 @@ export type Services_Aggregated_Count = {
   readonly __typename?: 'services_aggregated_count';
   readonly id: Maybe<Scalars['Int']['output']>;
   readonly img: Maybe<Scalars['Int']['output']>;
-  readonly serviceItem: Maybe<Scalars['Int']['output']>;
+  readonly serviceItemDirections: Maybe<Scalars['Int']['output']>;
   readonly tags: Maybe<Scalars['Int']['output']>;
   readonly title: Maybe<Scalars['Int']['output']>;
 };
@@ -708,8 +1324,8 @@ export type Services_Filter = {
   readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Services_Filter>>>;
   readonly id: InputMaybe<Number_Filter_Operators>;
   readonly img: InputMaybe<Directus_Files_Filter>;
-  readonly serviceItem: InputMaybe<String_Filter_Operators>;
-  readonly serviceItem_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly serviceItemDirections: InputMaybe<Services_ServiceItemDirections_Filter>;
+  readonly serviceItemDirections_func: InputMaybe<Count_Function_Filter_Operators>;
   readonly tags: InputMaybe<String_Filter_Operators>;
   readonly tags_func: InputMaybe<Count_Function_Filter_Operators>;
   readonly title: InputMaybe<String_Filter_Operators>;
@@ -718,6 +1334,70 @@ export type Services_Filter = {
 export type Services_Mutated = {
   readonly __typename?: 'services_mutated';
   readonly data: Maybe<Services>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Services_ServiceItemDirections = {
+  readonly __typename?: 'services_serviceItemDirections';
+  readonly collection: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly item: Maybe<Services_ServiceItemDirections_Item_Union>;
+  readonly services_id: Maybe<Services>;
+};
+
+
+export type Services_ServiceItemDirectionsServices_IdArgs = {
+  filter: InputMaybe<Services_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Services_ServiceItemDirections_Aggregated = {
+  readonly __typename?: 'services_serviceItemDirections_aggregated';
+  readonly avg: Maybe<Services_ServiceItemDirections_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Services_ServiceItemDirections_Aggregated_Fields>;
+  readonly count: Maybe<Services_ServiceItemDirections_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Services_ServiceItemDirections_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Services_ServiceItemDirections_Aggregated_Fields>;
+  readonly min: Maybe<Services_ServiceItemDirections_Aggregated_Fields>;
+  readonly sum: Maybe<Services_ServiceItemDirections_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Services_ServiceItemDirections_Aggregated_Fields>;
+};
+
+export type Services_ServiceItemDirections_Aggregated_Count = {
+  readonly __typename?: 'services_serviceItemDirections_aggregated_count';
+  readonly collection: Maybe<Scalars['Int']['output']>;
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly item: Maybe<Scalars['Int']['output']>;
+  readonly services_id: Maybe<Scalars['Int']['output']>;
+};
+
+export type Services_ServiceItemDirections_Aggregated_Fields = {
+  readonly __typename?: 'services_serviceItemDirections_aggregated_fields';
+  readonly id: Maybe<Scalars['Float']['output']>;
+  readonly services_id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Services_ServiceItemDirections_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Services_ServiceItemDirections_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Services_ServiceItemDirections_Filter>>>;
+  readonly collection: InputMaybe<String_Filter_Operators>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly item__directions: InputMaybe<Directions_Filter>;
+  readonly services_id: InputMaybe<Services_Filter>;
+};
+
+export type Services_ServiceItemDirections_Item_Union = Directions;
+
+export type Services_ServiceItemDirections_Mutated = {
+  readonly __typename?: 'services_serviceItemDirections_mutated';
+  readonly data: Maybe<Services_ServiceItemDirections>;
   readonly event: Maybe<EventEnum>;
   readonly key: Scalars['ID']['output'];
 };
@@ -744,23 +1424,279 @@ export type String_Filter_Operators = {
   readonly _starts_with: InputMaybe<Scalars['String']['input']>;
 };
 
+export type SubDirections = {
+  readonly __typename?: 'subDirections';
+  readonly id: Scalars['ID']['output'];
+  readonly items: Maybe<ReadonlyArray<Maybe<SubDirections_DirectionItem>>>;
+  readonly items_func: Maybe<Count_Functions>;
+  readonly moreDetails: Maybe<Scalars['String']['output']>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+
+export type SubDirectionsItemsArgs = {
+  filter: InputMaybe<SubDirections_DirectionItem_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type SubDirections_Aggregated = {
+  readonly __typename?: 'subDirections_aggregated';
+  readonly avg: Maybe<SubDirections_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<SubDirections_Aggregated_Fields>;
+  readonly count: Maybe<SubDirections_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<SubDirections_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<SubDirections_Aggregated_Fields>;
+  readonly min: Maybe<SubDirections_Aggregated_Fields>;
+  readonly sum: Maybe<SubDirections_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<SubDirections_Aggregated_Fields>;
+};
+
+export type SubDirections_Aggregated_Count = {
+  readonly __typename?: 'subDirections_aggregated_count';
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly items: Maybe<Scalars['Int']['output']>;
+  readonly moreDetails: Maybe<Scalars['Int']['output']>;
+  readonly title: Maybe<Scalars['Int']['output']>;
+};
+
+export type SubDirections_Aggregated_Fields = {
+  readonly __typename?: 'subDirections_aggregated_fields';
+  readonly id: Maybe<Scalars['Float']['output']>;
+};
+
+export type SubDirections_DirectionItem = {
+  readonly __typename?: 'subDirections_directionItem';
+  readonly directionItem_id: Maybe<DirectionItem>;
+  readonly id: Scalars['ID']['output'];
+  readonly subDirections_id: Maybe<SubDirections>;
+};
+
+
+export type SubDirections_DirectionItemDirectionItem_IdArgs = {
+  filter: InputMaybe<DirectionItem_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type SubDirections_DirectionItemSubDirections_IdArgs = {
+  filter: InputMaybe<SubDirections_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type SubDirections_DirectionItem_Aggregated = {
+  readonly __typename?: 'subDirections_directionItem_aggregated';
+  readonly avg: Maybe<SubDirections_DirectionItem_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<SubDirections_DirectionItem_Aggregated_Fields>;
+  readonly count: Maybe<SubDirections_DirectionItem_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<SubDirections_DirectionItem_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<SubDirections_DirectionItem_Aggregated_Fields>;
+  readonly min: Maybe<SubDirections_DirectionItem_Aggregated_Fields>;
+  readonly sum: Maybe<SubDirections_DirectionItem_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<SubDirections_DirectionItem_Aggregated_Fields>;
+};
+
+export type SubDirections_DirectionItem_Aggregated_Count = {
+  readonly __typename?: 'subDirections_directionItem_aggregated_count';
+  readonly directionItem_id: Maybe<Scalars['Int']['output']>;
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly subDirections_id: Maybe<Scalars['Int']['output']>;
+};
+
+export type SubDirections_DirectionItem_Aggregated_Fields = {
+  readonly __typename?: 'subDirections_directionItem_aggregated_fields';
+  readonly directionItem_id: Maybe<Scalars['Float']['output']>;
+  readonly id: Maybe<Scalars['Float']['output']>;
+  readonly subDirections_id: Maybe<Scalars['Float']['output']>;
+};
+
+export type SubDirections_DirectionItem_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<SubDirections_DirectionItem_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<SubDirections_DirectionItem_Filter>>>;
+  readonly directionItem_id: InputMaybe<DirectionItem_Filter>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly subDirections_id: InputMaybe<SubDirections_Filter>;
+};
+
+export type SubDirections_DirectionItem_Mutated = {
+  readonly __typename?: 'subDirections_directionItem_mutated';
+  readonly data: Maybe<SubDirections_DirectionItem>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type SubDirections_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<SubDirections_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<SubDirections_Filter>>>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly items: InputMaybe<SubDirections_DirectionItem_Filter>;
+  readonly items_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly moreDetails: InputMaybe<String_Filter_Operators>;
+  readonly title: InputMaybe<String_Filter_Operators>;
+};
+
+export type SubDirections_Mutated = {
+  readonly __typename?: 'subDirections_mutated';
+  readonly data: Maybe<SubDirections>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
+export type Version_DirectionItem = {
+  readonly __typename?: 'version_directionItem';
+  readonly desc: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly is_new: Maybe<Scalars['Boolean']['output']>;
+  readonly price: Maybe<Scalars['Int']['output']>;
+  readonly sale: Maybe<Scalars['Int']['output']>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+export type Version_Directions = {
+  readonly __typename?: 'version_directions';
+  readonly id: Scalars['ID']['output'];
+  readonly items: Maybe<Scalars['JSON']['output']>;
+  readonly items_func: Maybe<Count_Functions>;
+  readonly moreDetails: Maybe<Scalars['String']['output']>;
+  readonly subDirections: Maybe<Scalars['JSON']['output']>;
+  readonly subDirections_func: Maybe<Count_Functions>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+export type Version_Directions_DirectionItem = {
+  readonly __typename?: 'version_directions_directionItem';
+  readonly directionItem_id: Maybe<Scalars['JSON']['output']>;
+  readonly directions_id: Maybe<Scalars['JSON']['output']>;
+  readonly id: Scalars['ID']['output'];
+};
+
+export type Version_Directions_SubDirections = {
+  readonly __typename?: 'version_directions_subDirections';
+  readonly directions_id: Maybe<Scalars['JSON']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly subDirections_id: Maybe<Scalars['JSON']['output']>;
+};
+
 export type Version_Services = {
   readonly __typename?: 'version_services';
   readonly id: Scalars['ID']['output'];
   readonly img: Maybe<Scalars['JSON']['output']>;
-  readonly serviceItem: Maybe<Scalars['String']['output']>;
-  readonly serviceItem_func: Maybe<Count_Functions>;
+  readonly serviceItemDirections: Maybe<Scalars['JSON']['output']>;
+  readonly serviceItemDirections_func: Maybe<Count_Functions>;
   readonly tags: Maybe<Scalars['JSON']['output']>;
   readonly tags_func: Maybe<Count_Functions>;
   readonly title: Maybe<Scalars['String']['output']>;
 };
+
+export type Version_Services_ServiceItemDirections = {
+  readonly __typename?: 'version_services_serviceItemDirections';
+  readonly collection: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly item: Maybe<Scalars['String']['output']>;
+  readonly services_id: Maybe<Scalars['JSON']['output']>;
+};
+
+export type Version_SubDirections = {
+  readonly __typename?: 'version_subDirections';
+  readonly id: Scalars['ID']['output'];
+  readonly items: Maybe<Scalars['JSON']['output']>;
+  readonly items_func: Maybe<Count_Functions>;
+  readonly moreDetails: Maybe<Scalars['String']['output']>;
+  readonly title: Maybe<Scalars['String']['output']>;
+};
+
+export type Version_SubDirections_DirectionItem = {
+  readonly __typename?: 'version_subDirections_directionItem';
+  readonly directionItem_id: Maybe<Scalars['JSON']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly subDirections_id: Maybe<Scalars['JSON']['output']>;
+};
+
+export type ServiceFragmentFragment = { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean };
+
+export type GetServicesItemQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type GetServicesItemQuery = { readonly __typename?: 'Query', readonly services_by_id: { readonly __typename?: 'services', readonly serviceItemDirections: ReadonlyArray<{ readonly __typename?: 'services_serviceItemDirections', readonly id: string, readonly item: { readonly __typename?: 'directions', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'directions_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean } }>, readonly subDirections: ReadonlyArray<{ readonly __typename?: 'directions_subDirections', readonly id: string, readonly subDirections_id: { readonly __typename?: 'subDirections', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'subDirections_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean } }> } }> } }> } };
 
 export type GetServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetServicesQuery = { readonly __typename?: 'Query', readonly services: ReadonlyArray<{ readonly __typename?: 'services', readonly id: string, readonly title: string, readonly tags: any, readonly img: { readonly __typename?: 'directus_files', readonly id: string, readonly width: number, readonly height: number } }> };
 
-
+export const ServiceFragmentFragmentDoc = gql`
+    fragment ServiceFragment on directionItem {
+  id
+  title
+  desc
+  price
+  sale
+  is_new
+}
+    `;
+export const GetServicesItemDocument = gql`
+    query GetServicesItem($id: ID!) {
+  services_by_id(id: $id) {
+    serviceItemDirections {
+      id
+      item {
+        ... on directions {
+          id
+          title
+          moreDetails
+          items {
+            id
+            directionItem_id {
+              id
+              title
+              desc
+              price
+              sale
+              is_new
+            }
+          }
+          subDirections {
+            id
+            subDirections_id {
+              id
+              title
+              moreDetails
+              items {
+                id
+                directionItem_id {
+                  id
+                  title
+                  desc
+                  price
+                  sale
+                  is_new
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `;
 export const GetServicesDocument = gql`
     query GetServices {
   services {
@@ -783,6 +1719,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    GetServicesItem(variables: GetServicesItemQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetServicesItemQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetServicesItemQuery>(GetServicesItemDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetServicesItem', 'query', variables);
+    },
     GetServices(variables?: GetServicesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetServicesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetServicesQuery>(GetServicesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetServices', 'query', variables);
     }

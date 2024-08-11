@@ -1,0 +1,8 @@
+fragment ServiceFragment on directionItem {
+  id
+  title
+  desc
+  price
+  sale
+  is_new
+}

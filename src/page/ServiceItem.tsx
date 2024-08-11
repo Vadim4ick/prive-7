@@ -1,121 +1,15 @@
-// import { useParams } from "react-router-dom";
 import { Header } from "../components/Header";
 import { SliderBanner } from "./SliderBanner";
 import { ArrowLink } from "../shared/icons/ArrowLink";
 import { Direction } from "../components/Direction";
 import { AccordionServices } from "@/components/AccordionServices";
 import { Accordion } from "@radix-ui/react-accordion";
-
-export interface Direction {
-  title: string;
-  price: number;
-  desc?: string;
-  bage?: {
-    title: string;
-    value: string;
-  };
-}
-
-export interface DirectionSection {
-  title: string;
-
-  directions: Direction[];
-
-  subcategory?: {
-    title: string;
-    moreDetailsBtn: string;
-    directions: Direction[];
-  };
-}
-
-const arr: DirectionSection[] = [
-  {
-    title: "Чистки",
-
-    directions: [
-      {
-        title: "Комбинированная",
-        desc: "(механическая + ультразвуковая)",
-        price: 5500,
-      },
-      {
-        title: "Комбинированная",
-        desc: "(механическая + ультразвуковая)",
-        price: 5500,
-      },
-      {
-        title: "Комбинированная",
-        desc: "(механическая + ультразвуковая)",
-        price: 5500,
-      },
-      {
-        title: "Комбинированная",
-        price: 5500,
-      },
-    ],
-
-    subcategory: {
-      title: "Лазерная эпиляция Candela GentleLase Pro-U для женщин",
-
-      moreDetailsBtn: "text...",
-
-      directions: [
-        {
-          title: "Комбинированная",
-          desc: "(механическая + ультразвуковая)",
-          price: 5500,
-        },
-        {
-          title: "Комбинированная",
-          desc: "(механическая + ультразвуковая)",
-          price: 5500,
-        },
-        {
-          title: "Комбинированная",
-          desc: "(механическая + ультразвуковая)",
-          price: 5500,
-        },
-        {
-          title: "Комбинированная",
-          price: 5500,
-        },
-      ],
-    },
-  },
-  {
-    title: "Пилинги",
-
-    directions: [
-      {
-        title: "Комбинированная",
-        desc: "(механическая + ультразвуковая)",
-        price: 5500,
-      },
-      {
-        title: "Комбинированная",
-        desc: "(механическая + ультразвуковая)",
-        price: 5500,
-      },
-      {
-        title: "Комбинированная",
-        desc: "(механическая + ультразвуковая)",
-        price: 5500,
-        bage: {
-          title: "sale",
-          value: "15%",
-        },
-      },
-      {
-        title: "Комбинированная",
-        price: 5500,
-        bage: {
-          title: "new",
-          value: "new",
-        },
-      },
-    ],
-  },
-];
+import { useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
+import {
+  GetServicesItemDocument,
+  GetServicesItemQuery,
+} from "@/graphql/__generated__";
 
 const accordions = [
   {
@@ -174,7 +68,17 @@ const accordions = [
 ];
 
 const ServiceItem = () => {
-  //   const { id } = useParams();
+  const { id } = useParams();
+
+  const { loading, error, data } = useQuery<GetServicesItemQuery>(
+    GetServicesItemDocument,
+    {
+      variables: { id: id },
+    },
+  );
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <main className="min-h-screen bg-[#F4F4F4]">
@@ -220,9 +124,10 @@ const ServiceItem = () => {
           </section>
 
           <div className="flex flex-col gap-[180px] pb-[218px]">
-            {arr.map((el, idx) => {
-              return <Direction key={idx} el={el} />;
-            })}
+            {data &&
+              data.services_by_id.serviceItemDirections.map((el) => {
+                return <Direction key={el.item.id} el={el} />;
+              })}
 
             {accordions.map((el) => {
               return (

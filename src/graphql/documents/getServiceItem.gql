@@ -1,0 +1,49 @@
+query GetServicesItem($id: ID!) {
+  services_by_id(id: $id) {
+    serviceItemDirections {
+      id
+      item {
+        ... on directions {
+          id
+          title
+          moreDetails
+
+          items {
+            id
+
+            directionItem_id {
+              id
+              title
+              desc
+              price
+              sale
+              is_new
+            }
+          }
+
+          subDirections {
+            id
+
+            subDirections_id {
+              id
+              title
+              moreDetails
+
+              items {
+                id
+                directionItem_id {
+                  id
+                  title
+                  desc
+                  price
+                  sale
+                  is_new
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
