@@ -7,52 +7,86 @@ import { ArrowAccordion } from "@/shared/icons/ArrowAccordion";
 interface Props {
   item: ServiceFragmentFragment;
   type?: "default" | "accordion";
+  borderNoneFirst?: boolean;
 }
 
-const DirectionItem = memo(({ item, type = "default" }: Props) => {
-  const TitleAndLabels = () => (
-    <div className="flex gap-2">
-      <p className="text-[32px] font-medium leading-[38px]">{item.title}</p>
-      {item.sale > 0 && (
-        <span className="rounded-full bg-[#F5DF8F] px-[15px] py-2 text-[18px] font-semibold uppercase leading-[23px] text-[#665107]">
-          SALE {item.sale}%
-        </span>
-      )}
-      {item.is_new && (
-        <span className="rounded-full bg-[#C9EA93] px-[15px] py-2 text-[18px] font-semibold uppercase leading-[23px] text-[#406700]">
-          NEW
-        </span>
-      )}
-    </div>
-  );
+const DirectionItem = memo(
+  ({ item, type = "default", borderNoneFirst }: Props) => {
+    const TitleAndLabels = () => (
+      <div className="flex gap-2">
+        <p className="text-[32px] font-medium leading-[38px]">{item.title}</p>
+        {item.sale > 0 && (
+          <span className="rounded-full bg-[#F5DF8F] px-[15px] py-2 text-[18px] font-semibold uppercase leading-[23px] text-[#665107]">
+            SALE {item.sale}%
+          </span>
+        )}
+        {item.is_new && (
+          <span className="rounded-full bg-[#C9EA93] px-[15px] py-2 text-[18px] font-semibold uppercase leading-[23px] text-[#406700]">
+            NEW
+          </span>
+        )}
+      </div>
+    );
 
-  const PriceSection = () => (
-    <div className="flex flex-col items-end justify-start">
-      {item.sale > 0 ? (
-        <>
+    const PriceSection = () => (
+      <div className="flex flex-col items-end justify-start">
+        {item.sale > 0 ? (
+          <>
+            <span className="text-[28px] font-medium leading-[33px]">
+              {discountPrice(item.sale, item.price, true)} ₽
+            </span>
+            <span className="text-[24px] font-medium leading-[28px] text-[#8B8B8B] line-through">
+              {item.price} ₽
+            </span>
+          </>
+        ) : (
           <span className="text-[28px] font-medium leading-[33px]">
-            {discountPrice(item.sale, item.price, true)} ₽
+            {formatPrice(item.price)} ₽
           </span>
-          <span className="text-[24px] font-medium leading-[28px] text-[#8B8B8B] line-through">
-            {item.price} ₽
-          </span>
-        </>
-      ) : (
-        <span className="text-[28px] font-medium leading-[33px]">
-          {formatPrice(item.price)} ₽
-        </span>
-      )}
-    </div>
-  );
+        )}
+      </div>
+    );
 
-  if (type === "accordion") {
-    return (
-      <>
-        <div className="flex items-center gap-4">
-          <div className="flex h-[40px] w-[32px] items-center justify-center rounded-full bg-[#EDEDED]">
-            <ArrowAccordion className="shrink-0 transition-transform duration-200" />
+    if (type === "accordion") {
+      return (
+        <>
+          <div className="flex items-center gap-4">
+            <div className="flex h-[40px] w-[32px] items-center justify-center rounded-full bg-[#EDEDED]">
+              <ArrowAccordion className="shrink-0 transition-transform duration-200" />
+            </div>
+            <div className="flex flex-col items-start justify-between gap-1">
+              <TitleAndLabels />
+              {item.desc && (
+                <span className="text-[24px] leading-[28px] text-[#656565]">
+                  {item.desc}
+                </span>
+              )}
+            </div>
           </div>
-          <div className="flex flex-col items-start justify-between gap-1">
+          <PriceSection />
+        </>
+      );
+    }
+
+    return (
+      <div
+        className={classNames(
+          "relative flex flex-col border-b-4 border-[#F4F4F4]",
+          {
+            "after:absolute after:h-full after:border-l-[4px] after:border-[#F5DF8F]":
+              item.sale > 0,
+          },
+          {
+            "rounded-t-[4px] after:absolute after:bottom-0 after:h-full after:border-l-[4px] after:border-[#C9EA93]":
+              item.is_new,
+          },
+          {
+            "after:top-4": borderNoneFirst,
+          },
+        )}
+      >
+        <div className="flex justify-between px-[40px] py-8">
+          <div className="flex flex-col justify-between gap-1">
             <TitleAndLabels />
             {item.desc && (
               <span className="text-[24px] leading-[28px] text-[#656565]">
@@ -60,39 +94,11 @@ const DirectionItem = memo(({ item, type = "default" }: Props) => {
               </span>
             )}
           </div>
+          <PriceSection />
         </div>
-        <PriceSection />
-      </>
-    );
-  }
-
-  return (
-    <div
-      className={classNames(
-        "relative flex flex-col border-b-4 border-[#F4F4F4]",
-        {
-          "after:absolute after:h-full after:border-l-[4px] after:border-[#F5DF8F]":
-            item.sale > 0,
-        },
-        {
-          "rounded-t-[4px] after:absolute after:bottom-0 after:h-full after:border-l-[4px] after:border-[#C9EA93]":
-            item.is_new,
-        },
-      )}
-    >
-      <div className="flex justify-between px-[40px] py-8">
-        <div className="flex flex-col justify-between gap-1">
-          <TitleAndLabels />
-          {item.desc && (
-            <span className="text-[24px] leading-[28px] text-[#656565]">
-              {item.desc}
-            </span>
-          )}
-        </div>
-        <PriceSection />
       </div>
-    </div>
-  );
-});
+    );
+  },
+);
 
 export { DirectionItem };

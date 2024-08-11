@@ -35,7 +35,7 @@ const Direction = memo(
             )}
           </div>
 
-          <div className="rounded-t-3xl bg-white">
+          <div className={"overflow-hidden rounded-t-3xl bg-white"}>
             {el &&
               el.items.map((item) => {
                 return (
@@ -69,7 +69,7 @@ const Direction = memo(
                   )}
                 </div>
 
-                <div className="rounded-t-3xl bg-white">
+                <div className="overflow-hidden rounded-t-3xl bg-white">
                   {el.subDirections_id.items.map((item) => {
                     return (
                       <DirectionItem
