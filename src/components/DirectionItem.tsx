@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { GetServicesItemQuery } from "@/graphql/__generated__";
 import { discountPrice, formatPrice } from "@/lib/utils";
+import { memo } from "react";
 
 interface Props {
   item:
@@ -8,7 +9,7 @@ interface Props {
     | GetServicesItemQuery["services_by_id"]["serviceItemDirections"][0]["item"]["subDirections"][0]["subDirections_id"]["items"][0];
 }
 
-const DirectionItem = ({ item }: Props) => {
+const DirectionItem = memo(({ item }: Props) => {
   return (
     <div
       className={classNames(
@@ -18,7 +19,7 @@ const DirectionItem = ({ item }: Props) => {
             item.directionItem_id.sale > 0,
         },
         {
-          "after:absolute after:h-full after:border-l-[4px] after:border-[#C9EA93]":
+          "rounded-t-[4px] after:absolute after:bottom-0 after:h-full after:border-l-[4px] after:border-[#C9EA93]":
             item.directionItem_id.is_new,
         },
       )}
@@ -75,6 +76,6 @@ const DirectionItem = ({ item }: Props) => {
       </div>
     </div>
   );
-};
+});
 
 export { DirectionItem };

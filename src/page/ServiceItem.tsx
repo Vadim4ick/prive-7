@@ -1,6 +1,5 @@
 import { Header } from "../components/Header";
 import { SliderBanner } from "./SliderBanner";
-import { ArrowLink } from "../shared/icons/ArrowLink";
 import { Direction } from "../components/Direction";
 import { AccordionServices } from "@/components/AccordionServices";
 import { Accordion } from "@radix-ui/react-accordion";
@@ -10,6 +9,16 @@ import {
   GetServicesItemDocument,
   GetServicesItemQuery,
 } from "@/graphql/__generated__";
+import { extractTitles } from "@/lib/utils";
+import React, {
+  memo,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import { ButtonScroll } from "@/components/ButtonScroll";
 
 const accordions = [
   {
@@ -67,8 +76,13 @@ const accordions = [
   },
 ];
 
-const ServiceItem = () => {
+const ServiceItem = memo(() => {
   const { id } = useParams();
+
+  const sectionRefs = useRef<HTMLElement[]>([]);
+  const [titlesAndIds, setTitlesAndIds] = useState<
+    { title: string; id: string }[]
+  >([]);
 
   const { loading, error, data } = useQuery<GetServicesItemQuery>(
     GetServicesItemDocument,
@@ -76,6 +90,39 @@ const ServiceItem = () => {
       variables: { id: id },
     },
   );
+
+  useEffect(() => {
+    if (data) {
+      const extractedTitles = data.services_by_id.serviceItemDirections.flatMap(
+        (dir) =>
+          extractTitles(dir.item).map(({ id, title }) => ({
+            id: id.toString(), // Преобразование id в строку
+            title,
+          })),
+      );
+
+      setTitlesAndIds(extractedTitles);
+    }
+  }, [data]);
+
+  const onClick = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      const scrollElementId = e.currentTarget.dataset.scroll;
+      const scrollElement =
+        sectionRefs.current[parseInt(scrollElementId || "0", 10) - 1];
+
+      if (scrollElement) {
+        scrollElement.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    [],
+  );
+
+  const buttonScroll = useMemo(() => {
+    return titlesAndIds.map((el) => {
+      return <ButtonScroll key={el.id} el={el} onClick={onClick} />;
+    });
+  }, [titlesAndIds]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -96,37 +143,16 @@ const ServiceItem = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-[18px]">
-              <button className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]">
-                Ботулотоксины
-                <ArrowLink />
-              </button>
-              <button className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]">
-                Биоревитализация
-                <ArrowLink />
-              </button>
-              <button className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]">
-                Коллагенотерапия
-                <ArrowLink />
-              </button>
-              <button className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]">
-                Мезотерапия
-                <ArrowLink />
-              </button>
-              <button className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]">
-                Полимолочная кислота
-                <ArrowLink />
-              </button>
-              <button className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]">
-                Контурная пластика
-                <ArrowLink />
-              </button>
+              {titlesAndIds.length > 0 && buttonScroll}
             </div>
           </section>
 
           <div className="flex flex-col gap-[180px] pb-[218px]">
             {data &&
               data.services_by_id.serviceItemDirections.map((el) => {
-                return <Direction key={el.item.id} el={el} />;
+                return (
+                  <Direction key={el.item.id} el={el} refs={sectionRefs} />
+                );
               })}
 
             {accordions.map((el) => {
@@ -163,6 +189,6 @@ const ServiceItem = () => {
       </div>
     </main>
   );
-};
+});
 
 export { ServiceItem };

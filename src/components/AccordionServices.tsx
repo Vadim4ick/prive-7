@@ -4,6 +4,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ArrowAccordion } from "@/shared/icons/ArrowAccordion";
+import { memo } from "react";
 
 interface Props {
   item: {
@@ -15,7 +16,7 @@ interface Props {
   };
 }
 
-const AccordionServices = (props: Props) => {
+const AccordionServices = memo((props: Props) => {
   const { item } = props;
 
   return (
@@ -64,6 +65,6 @@ const AccordionServices = (props: Props) => {
       </AccordionContent>
     </AccordionItem>
   );
-};
+});
 
 export { AccordionServices };

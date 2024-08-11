@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { CartService } from "../components/CartService";
 import { Logo } from "../shared/icons/Logo";
 import { GetServicesDocument, GetServicesQuery } from "@/graphql/__generated__";
@@ -10,7 +11,7 @@ export interface ServiceItem {
   service: string[];
 }
 
-const HomePage = () => {
+const HomePage = memo(() => {
   const { loading, error, data } =
     useQuery<GetServicesQuery>(GetServicesDocument);
 
@@ -37,6 +38,6 @@ const HomePage = () => {
       </div>
     </main>
   );
-};
+});
 
 export { HomePage };

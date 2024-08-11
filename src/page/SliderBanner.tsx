@@ -2,6 +2,7 @@ import Slider, { Settings } from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { memo } from "react";
 
 const settings: Settings = {
   dots: true,
@@ -11,7 +12,7 @@ const settings: Settings = {
   arrows: false,
 };
 
-const SliderBanner = () => {
+const SliderBanner = memo(() => {
   return (
     <Slider {...settings}>
       <div className="mr-4">
@@ -28,6 +29,6 @@ const SliderBanner = () => {
       </div>
     </Slider>
   );
-};
+});
 
 export { SliderBanner };

@@ -1,0 +1,39 @@
+query GetServiceItemTitles {
+  services {
+    serviceItemDirections {
+      id
+      item {
+        ... on directions {
+          id
+          title
+
+          items {
+            id
+
+            directionItem_id {
+              id
+              title
+            }
+          }
+
+          subDirections {
+            id
+
+            subDirections_id {
+              id
+              title
+
+              items {
+                id
+                directionItem_id {
+                  id
+                  title
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
