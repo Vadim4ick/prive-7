@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Header } from "../components/Header";
-import { SliderBanner } from "./SliderBanner";
+import { SliderBanner } from "../components/SliderBanner";
 import { Direction } from "../components/Direction";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
@@ -82,9 +81,11 @@ const ServiceItem = memo(() => {
               {data?.services_by_id.title}
             </h2>
 
-            <div className="pb-[39px]">
-              <SliderBanner />
-            </div>
+            {data && data.services_by_id.slider && (
+              <div className="pb-[39px]">
+                <SliderBanner slider={data.services_by_id.slider} />
+              </div>
+            )}
 
             <div className="grid grid-cols-2 gap-[18px]">
               {titlesAndIds.length > 0 && buttonScroll}

@@ -2,6 +2,10 @@ query GetServicesItem($id: ID!) {
   services_by_id(id: $id) {
     title
 
+    slider {
+      ...SliderFragment
+    }
+
     serviceItemDirections {
       id
       item {

@@ -22,40 +22,12 @@ export const discountPrice = (
   return Math.floor(price * (1 - discount / 100));
 };
 
-// // Рекурсивная функция для извлечения всех заголовков и id
-// const extractTitlesAndIds = (data, type = "mainTitle") => {
-//   let result = [];
+export const pathImage = (id: string) => {
+  return `${import.meta.env.VITE_SERVER_URL}/assets/${id}`;
+};
 
-//   if (data.title && data.id) {
-//     result.push({ id: data.id, title: data.title, type });
-//   }
-
-//   if (data.subDirections) {
-//     data.subDirections.forEach((sub) => {
-//       result = result.concat(
-//         extractTitlesAndIds(sub.subDirections_id, "subTitle"),
-//       );
-//     });
-//   }
-
-//   return result;
-// };
-
-// Рекурсивная функция для извлечения всех заголовков
 let counter = 1;
 export const extractTitles = (data: any): { id: number; title: string }[] => {
-  // let result = [] as { id: number; title: string };
-
-  // if (data.title) {
-  //   result.push({ id: counter++, title: data.title });
-  // }
-
-  // if (data.subDirections) {
-  //   data.subDirections.forEach((sub) => {
-  //     result = result.concat(extractTitles(sub.subDirections_id));
-  //   });
-  // }
-  // Инициализация как массив
   let result: { id: number; title: string }[] = [];
 
   if (data.title) {

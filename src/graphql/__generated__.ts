@@ -70,6 +70,10 @@ export type Query = {
   readonly services_aggregated: ReadonlyArray<Services_Aggregated>;
   readonly services_by_id: Maybe<Services>;
   readonly services_by_version: Maybe<Version_Services>;
+  readonly services_files: ReadonlyArray<Services_Files>;
+  readonly services_files_aggregated: ReadonlyArray<Services_Files_Aggregated>;
+  readonly services_files_by_id: Maybe<Services_Files>;
+  readonly services_files_by_version: Maybe<Version_Services_Files>;
   readonly services_serviceItemDirections: ReadonlyArray<Services_ServiceItemDirections>;
   readonly services_serviceItemDirections_aggregated: ReadonlyArray<Services_ServiceItemDirections_Aggregated>;
   readonly services_serviceItemDirections_by_id: Maybe<Services_ServiceItemDirections>;
@@ -415,6 +419,39 @@ export type QueryServices_By_VersionArgs = {
 };
 
 
+export type QueryServices_FilesArgs = {
+  filter: InputMaybe<Services_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryServices_Files_AggregatedArgs = {
+  filter: InputMaybe<Services_Files_Filter>;
+  groupBy: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QueryServices_Files_By_IdArgs = {
+  id: Scalars['ID']['input'];
+  version: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryServices_Files_By_VersionArgs = {
+  id: Scalars['ID']['input'];
+  version: Scalars['String']['input'];
+};
+
+
 export type QueryServices_ServiceItemDirectionsArgs = {
   filter: InputMaybe<Services_ServiceItemDirections_Filter>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -532,6 +569,7 @@ export type Subscription = {
   readonly directus_roles_mutated: Maybe<Directus_Roles_Mutated>;
   readonly directus_shares_mutated: Maybe<Directus_Shares_Mutated>;
   readonly directus_users_mutated: Maybe<Directus_Users_Mutated>;
+  readonly services_files_mutated: Maybe<Services_Files_Mutated>;
   readonly services_mutated: Maybe<Services_Mutated>;
   readonly services_serviceItemDirections_mutated: Maybe<Services_ServiceItemDirections_Mutated>;
   readonly subDirections_directionItem_mutated: Maybe<SubDirections_DirectionItem_Mutated>;
@@ -620,6 +658,11 @@ export type SubscriptionDirectus_Shares_MutatedArgs = {
 
 
 export type SubscriptionDirectus_Users_MutatedArgs = {
+  event: InputMaybe<EventEnum>;
+};
+
+
+export type SubscriptionServices_Files_MutatedArgs = {
   event: InputMaybe<EventEnum>;
 };
 
@@ -1802,6 +1845,8 @@ export type Services = {
   readonly img: Maybe<Directus_Files>;
   readonly serviceItemDirections: Maybe<ReadonlyArray<Maybe<Services_ServiceItemDirections>>>;
   readonly serviceItemDirections_func: Maybe<Count_Functions>;
+  readonly slider: Maybe<ReadonlyArray<Maybe<Services_Files>>>;
+  readonly slider_func: Maybe<Count_Functions>;
   readonly tags: Maybe<Scalars['JSON']['output']>;
   readonly tags_func: Maybe<Count_Functions>;
   readonly title: Maybe<Scalars['String']['output']>;
@@ -1820,6 +1865,16 @@ export type ServicesImgArgs = {
 
 export type ServicesServiceItemDirectionsArgs = {
   filter: InputMaybe<Services_ServiceItemDirections_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type ServicesSliderArgs = {
+  filter: InputMaybe<Services_Files_Filter>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   page: InputMaybe<Scalars['Int']['input']>;
@@ -1846,6 +1901,7 @@ export type Services_Aggregated_Count = {
   readonly id: Maybe<Scalars['Int']['output']>;
   readonly img: Maybe<Scalars['Int']['output']>;
   readonly serviceItemDirections: Maybe<Scalars['Int']['output']>;
+  readonly slider: Maybe<Scalars['Int']['output']>;
   readonly tags: Maybe<Scalars['Int']['output']>;
   readonly title: Maybe<Scalars['Int']['output']>;
 };
@@ -1855,6 +1911,75 @@ export type Services_Aggregated_Fields = {
   readonly id: Maybe<Scalars['Float']['output']>;
 };
 
+export type Services_Files = {
+  readonly __typename?: 'services_files';
+  readonly directus_files_id: Maybe<Directus_Files>;
+  readonly id: Scalars['ID']['output'];
+  readonly services_id: Maybe<Services>;
+};
+
+
+export type Services_FilesDirectus_Files_IdArgs = {
+  filter: InputMaybe<Directus_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Services_FilesServices_IdArgs = {
+  filter: InputMaybe<Services_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Services_Files_Aggregated = {
+  readonly __typename?: 'services_files_aggregated';
+  readonly avg: Maybe<Services_Files_Aggregated_Fields>;
+  readonly avgDistinct: Maybe<Services_Files_Aggregated_Fields>;
+  readonly count: Maybe<Services_Files_Aggregated_Count>;
+  readonly countAll: Maybe<Scalars['Int']['output']>;
+  readonly countDistinct: Maybe<Services_Files_Aggregated_Count>;
+  readonly group: Maybe<Scalars['JSON']['output']>;
+  readonly max: Maybe<Services_Files_Aggregated_Fields>;
+  readonly min: Maybe<Services_Files_Aggregated_Fields>;
+  readonly sum: Maybe<Services_Files_Aggregated_Fields>;
+  readonly sumDistinct: Maybe<Services_Files_Aggregated_Fields>;
+};
+
+export type Services_Files_Aggregated_Count = {
+  readonly __typename?: 'services_files_aggregated_count';
+  readonly directus_files_id: Maybe<Scalars['Int']['output']>;
+  readonly id: Maybe<Scalars['Int']['output']>;
+  readonly services_id: Maybe<Scalars['Int']['output']>;
+};
+
+export type Services_Files_Aggregated_Fields = {
+  readonly __typename?: 'services_files_aggregated_fields';
+  readonly id: Maybe<Scalars['Float']['output']>;
+  readonly services_id: Maybe<Scalars['Float']['output']>;
+};
+
+export type Services_Files_Filter = {
+  readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Services_Files_Filter>>>;
+  readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Services_Files_Filter>>>;
+  readonly directus_files_id: InputMaybe<Directus_Files_Filter>;
+  readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly services_id: InputMaybe<Services_Filter>;
+};
+
+export type Services_Files_Mutated = {
+  readonly __typename?: 'services_files_mutated';
+  readonly data: Maybe<Services_Files>;
+  readonly event: Maybe<EventEnum>;
+  readonly key: Scalars['ID']['output'];
+};
+
 export type Services_Filter = {
   readonly _and: InputMaybe<ReadonlyArray<InputMaybe<Services_Filter>>>;
   readonly _or: InputMaybe<ReadonlyArray<InputMaybe<Services_Filter>>>;
@@ -1862,6 +1987,8 @@ export type Services_Filter = {
   readonly img: InputMaybe<Directus_Files_Filter>;
   readonly serviceItemDirections: InputMaybe<Services_ServiceItemDirections_Filter>;
   readonly serviceItemDirections_func: InputMaybe<Count_Function_Filter_Operators>;
+  readonly slider: InputMaybe<Services_Files_Filter>;
+  readonly slider_func: InputMaybe<Count_Function_Filter_Operators>;
   readonly tags: InputMaybe<String_Filter_Operators>;
   readonly tags_func: InputMaybe<Count_Function_Filter_Operators>;
   readonly title: InputMaybe<String_Filter_Operators>;
@@ -2173,9 +2300,18 @@ export type Version_Services = {
   readonly img: Maybe<Scalars['JSON']['output']>;
   readonly serviceItemDirections: Maybe<Scalars['JSON']['output']>;
   readonly serviceItemDirections_func: Maybe<Count_Functions>;
+  readonly slider: Maybe<Scalars['JSON']['output']>;
+  readonly slider_func: Maybe<Count_Functions>;
   readonly tags: Maybe<Scalars['JSON']['output']>;
   readonly tags_func: Maybe<Count_Functions>;
   readonly title: Maybe<Scalars['String']['output']>;
+};
+
+export type Version_Services_Files = {
+  readonly __typename?: 'version_services_files';
+  readonly directus_files_id: Maybe<Scalars['JSON']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly services_id: Maybe<Scalars['JSON']['output']>;
 };
 
 export type Version_Services_ServiceItemDirections = {
@@ -2210,12 +2346,14 @@ export type DirectionsFragmentFragment = { readonly __typename?: 'directions', r
 
 export type ServiceFragmentFragment = { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean };
 
+export type SliderFragmentFragment = { readonly __typename?: 'services_files', readonly id: string, readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly width: number, readonly height: number } };
+
 export type GetServicesItemQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
 
-export type GetServicesItemQuery = { readonly __typename?: 'Query', readonly services_by_id: { readonly __typename?: 'services', readonly title: string, readonly serviceItemDirections: ReadonlyArray<{ readonly __typename?: 'services_serviceItemDirections', readonly id: string, readonly item: { readonly __typename?: 'accordionsSection', readonly id: string, readonly title: string, readonly items: ReadonlyArray<{ readonly __typename?: 'accordionsSection_accordionBlock', readonly id: string, readonly accordionBlock_id: { readonly __typename?: 'accordionBlock', readonly id: string, readonly title: string, readonly items: ReadonlyArray<{ readonly __typename?: 'accordionBlock_accordionItems', readonly id: string, readonly accordionItems_id: { readonly __typename?: 'accordionItems', readonly id: string, readonly value: string, readonly directionItem: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean } } }> } }> } | { readonly __typename?: 'directions', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'directions_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean } }>, readonly subDirections: ReadonlyArray<{ readonly __typename?: 'directions_subDirections', readonly id: string, readonly subDirections_id: { readonly __typename?: 'subDirections', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'subDirections_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean } }> } }> } }> } };
+export type GetServicesItemQuery = { readonly __typename?: 'Query', readonly services_by_id: { readonly __typename?: 'services', readonly title: string, readonly slider: ReadonlyArray<{ readonly __typename?: 'services_files', readonly id: string, readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly width: number, readonly height: number } }>, readonly serviceItemDirections: ReadonlyArray<{ readonly __typename?: 'services_serviceItemDirections', readonly id: string, readonly item: { readonly __typename?: 'accordionsSection', readonly id: string, readonly title: string, readonly items: ReadonlyArray<{ readonly __typename?: 'accordionsSection_accordionBlock', readonly id: string, readonly accordionBlock_id: { readonly __typename?: 'accordionBlock', readonly id: string, readonly title: string, readonly items: ReadonlyArray<{ readonly __typename?: 'accordionBlock_accordionItems', readonly id: string, readonly accordionItems_id: { readonly __typename?: 'accordionItems', readonly id: string, readonly value: string, readonly directionItem: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean } } }> } }> } | { readonly __typename?: 'directions', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'directions_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean } }>, readonly subDirections: ReadonlyArray<{ readonly __typename?: 'directions_subDirections', readonly id: string, readonly subDirections_id: { readonly __typename?: 'subDirections', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'subDirections_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean } }> } }> } }> } };
 
 export type GetServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2287,10 +2425,23 @@ export const DirectionsFragmentFragmentDoc = gql`
   }
 }
     ${ServiceFragmentFragmentDoc}`;
+export const SliderFragmentFragmentDoc = gql`
+    fragment SliderFragment on services_files {
+  id
+  directus_files_id {
+    id
+    width
+    height
+  }
+}
+    `;
 export const GetServicesItemDocument = gql`
     query GetServicesItem($id: ID!) {
   services_by_id(id: $id) {
     title
+    slider {
+      ...SliderFragment
+    }
     serviceItemDirections {
       id
       item {
@@ -2304,7 +2455,8 @@ export const GetServicesItemDocument = gql`
     }
   }
 }
-    ${DirectionsFragmentFragmentDoc}
+    ${SliderFragmentFragmentDoc}
+${DirectionsFragmentFragmentDoc}
 ${AccordionsFragmentFragmentDoc}`;
 export const GetServicesDocument = gql`
     query GetServices {

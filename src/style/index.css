@@ -94,6 +94,13 @@ body {
   opacity: 0.6;
 }
 
+.slick-list {
+  margin: 0 -5px !important;
+}
+.slick-slide > div {
+  padding: 0 5px !important;
+}
+
 .slick-dots {
   bottom: 18px !important; /* Сдвиг точек ближе к низу */
   padding: 6px 10px !important; /* Сдвиг точек ближе к низу */

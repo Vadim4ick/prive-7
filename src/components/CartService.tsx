@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { GetServicesQuery } from "@/graphql/__generated__";
 import { memo } from "react";
+import { pathImage } from "@/lib/utils";
 
 const CartService = memo(
   ({ item }: { item: GetServicesQuery["services"][0] }) => {
@@ -31,7 +32,7 @@ const CartService = memo(
         </div>
         <img
           className="absolute bottom-0 right-0"
-          src={`http://0.0.0.0:8055/assets/${item.img.id}`}
+          src={pathImage(item.img.id)}
         />
       </Link>
     );
