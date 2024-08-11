@@ -129,13 +129,13 @@ const ServiceItem = memo(() => {
 
   return (
     <main className="min-h-screen bg-[#F4F4F4]">
-      <Header />
+      <Header title={data?.services_by_id.title} />
 
       <div className="pt-[48px]">
         <div className="container">
           <section className="pb-[180px]">
             <h2 className="second-family pb-[40px] text-center text-[80px] font-semibold leading-[88px]">
-              Косметология
+              {data?.services_by_id.title}
             </h2>
 
             <div className="pb-[39px]">

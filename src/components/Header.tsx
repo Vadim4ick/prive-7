@@ -3,9 +3,9 @@ import { ArrowLeft } from "../shared/icons/ArrowLeft";
 import { Logo } from "../shared/icons/Logo";
 import { memo } from "react";
 
-const Header = memo(() => {
+const Header = memo(({ title }: { title: string | undefined }) => {
   return (
-    <header className="container flex h-[100px] items-center justify-between">
+    <header className="headerLine container flex h-[100px] items-center justify-between">
       <div className="flex w-full items-center justify-between px-[25px]">
         <Link
           to={"/"}
@@ -17,7 +17,7 @@ const Header = memo(() => {
 
         <Logo className="h-[51px] w-[182px]" />
 
-        <p className="text-[28px] leading-[30px]">Косметология</p>
+        <p className="text-[28px] leading-[30px]">{title}</p>
       </div>
     </header>
   );

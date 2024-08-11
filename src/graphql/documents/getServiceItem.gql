@@ -1,5 +1,7 @@
 query GetServicesItem($id: ID!) {
   services_by_id(id: $id) {
+    title
+
     serviceItemDirections {
       id
       item {

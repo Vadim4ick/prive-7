@@ -1634,12 +1634,7 @@ export type GetServicesItemQueryVariables = Exact<{
 }>;
 
 
-export type GetServicesItemQuery = { readonly __typename?: 'Query', readonly services_by_id: { readonly __typename?: 'services', readonly serviceItemDirections: ReadonlyArray<{ readonly __typename?: 'services_serviceItemDirections', readonly id: string, readonly item: { readonly __typename?: 'directions', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'directions_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean } }>, readonly subDirections: ReadonlyArray<{ readonly __typename?: 'directions_subDirections', readonly id: string, readonly subDirections_id: { readonly __typename?: 'subDirections', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'subDirections_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean } }> } }> } }> } };
-
-export type GetServiceItemTitlesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetServiceItemTitlesQuery = { readonly __typename?: 'Query', readonly services: ReadonlyArray<{ readonly __typename?: 'services', readonly serviceItemDirections: ReadonlyArray<{ readonly __typename?: 'services_serviceItemDirections', readonly id: string, readonly item: { readonly __typename?: 'directions', readonly id: string, readonly title: string, readonly items: ReadonlyArray<{ readonly __typename?: 'directions_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string } }>, readonly subDirections: ReadonlyArray<{ readonly __typename?: 'directions_subDirections', readonly id: string, readonly subDirections_id: { readonly __typename?: 'subDirections', readonly id: string, readonly title: string, readonly items: ReadonlyArray<{ readonly __typename?: 'subDirections_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string } }> } }> } }> }> };
+export type GetServicesItemQuery = { readonly __typename?: 'Query', readonly services_by_id: { readonly __typename?: 'services', readonly title: string, readonly serviceItemDirections: ReadonlyArray<{ readonly __typename?: 'services_serviceItemDirections', readonly id: string, readonly item: { readonly __typename?: 'directions', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'directions_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean } }>, readonly subDirections: ReadonlyArray<{ readonly __typename?: 'directions_subDirections', readonly id: string, readonly subDirections_id: { readonly __typename?: 'subDirections', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'subDirections_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean } }> } }> } }> } };
 
 export type GetServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1659,6 +1654,7 @@ export const ServiceFragmentFragmentDoc = gql`
 export const GetServicesItemDocument = gql`
     query GetServicesItem($id: ID!) {
   services_by_id(id: $id) {
+    title
     serviceItemDirections {
       id
       item {
@@ -1702,42 +1698,6 @@ export const GetServicesItemDocument = gql`
   }
 }
     `;
-export const GetServiceItemTitlesDocument = gql`
-    query GetServiceItemTitles {
-  services {
-    serviceItemDirections {
-      id
-      item {
-        ... on directions {
-          id
-          title
-          items {
-            id
-            directionItem_id {
-              id
-              title
-            }
-          }
-          subDirections {
-            id
-            subDirections_id {
-              id
-              title
-              items {
-                id
-                directionItem_id {
-                  id
-                  title
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-    `;
 export const GetServicesDocument = gql`
     query GetServices {
   services {
@@ -1762,9 +1722,6 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     GetServicesItem(variables: GetServicesItemQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetServicesItemQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetServicesItemQuery>(GetServicesItemDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetServicesItem', 'query', variables);
-    },
-    GetServiceItemTitles(variables?: GetServiceItemTitlesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetServiceItemTitlesQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<GetServiceItemTitlesQuery>(GetServiceItemTitlesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetServiceItemTitles', 'query', variables);
     },
     GetServices(variables?: GetServicesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetServicesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetServicesQuery>(GetServicesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetServices', 'query', variables);
