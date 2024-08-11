@@ -99,7 +99,7 @@ const ServiceItem = memo(() => {
                     <Direction key={el.id} el={el.item} refs={sectionRefs} />
                   );
                 } else if (el.item.__typename === "accordionsSection") {
-                  return <AccordionSection el={el.item} />;
+                  return <AccordionSection key={el.id} el={el.item} />;
                 }
               })}
           </div>

@@ -9,7 +9,11 @@ const AccordionSection = ({ el }: { el: AccordionsFragmentFragment }) => {
         {el.title}
       </h2>
 
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion
+        type="single"
+        collapsible
+        className="flex w-full flex-col gap-[96px]"
+      >
         {el.items.map((accordion) => {
           return (
             <div key={accordion.id}>
