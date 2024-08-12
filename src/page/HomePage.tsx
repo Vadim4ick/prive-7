@@ -3,6 +3,7 @@ import { CartService } from "../components/CartService";
 import { Logo } from "../shared/icons/Logo";
 import { GetServicesDocument, GetServicesQuery } from "@/graphql/__generated__";
 import { useQuery } from "@apollo/client";
+import { Loader } from "@/components/ui/loader";
 
 export interface ServiceItem {
   id: number | string;
@@ -15,7 +16,12 @@ const HomePage = memo(() => {
   const { loading, error, data } =
     useQuery<GetServicesQuery>(GetServicesDocument);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="z-50 h-screen w-full bg-white">
+        <Loader className="absolute left-1/2 top-1/2 size-10" />
+      </div>
+    );
   if (error) return <p>Error: {error.message}</p>;
 
   return (

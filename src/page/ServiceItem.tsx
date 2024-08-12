@@ -18,6 +18,7 @@ import React, {
 } from "react";
 import { ButtonScroll } from "@/components/ButtonScroll";
 import { AccordionSection } from "@/components/AccordionSection";
+import { Loader } from "@/components/ui/loader";
 
 const ServiceItem = memo(() => {
   const { id } = useParams();
@@ -67,14 +68,20 @@ const ServiceItem = memo(() => {
     });
   }, [titlesAndIds]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="z-50 h-screen w-full bg-white">
+        <Loader className="absolute left-1/2 top-1/2 size-10" />
+      </div>
+    );
+
   if (error) return <p>Error: {error.message}</p>;
 
   return (
     <main className="min-h-screen bg-[#F4F4F4]">
       <Header title={data?.services_by_id.title} />
 
-      <div className="pt-[48px]">
+      <div className="pt-[var(--header-height)_+_48px]">
         <div className="container">
           <section className="pb-[180px]">
             <h2 className="second-family pb-[40px] text-center text-[80px] font-semibold leading-[88px]">
