@@ -17,7 +17,7 @@ const router = createBrowserRouter([
 ]);
 
 const client = new ApolloClient({
-  uri: "http://0.0.0.0:8055/graphql", // Убедитесь, что эта переменная корректно настроена
+  uri: `${import.meta.env.VITE_SERVER_URL}/graphql`, // Убедитесь, что эта переменная корректно настроена
   cache: new InMemoryCache(),
 });
 
