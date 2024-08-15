@@ -33,7 +33,7 @@ const CartService = memo(
 
         {item.img && (
           <img
-            className="absolute bottom-0 right-0"
+            className="absolute bottom-0 right-0 max-h-[250px] object-cover"
             src={pathImage(item.img.id)}
           />
         )}
