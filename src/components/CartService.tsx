@@ -8,11 +8,11 @@ const CartService = memo(
     return (
       <Link
         to={`/service/${item.id}`}
-        className="relative h-[652px] overflow-hidden rounded-[20px] bg-white"
+        className="relative h-[373px] overflow-hidden rounded-[20px] bg-white"
       >
-        <div className="p-8">
-          <div className="flex flex-col gap-7">
-            <h3 className="text-[36px] font-semibold leading-[40px]">
+        <div className="p-[18px]">
+          <div className="flex flex-col gap-[16px]">
+            <h3 className="text-[20px] font-semibold leading-[22px]">
               {item.title}
             </h3>
 
@@ -21,7 +21,7 @@ const CartService = memo(
                 return (
                   <div
                     key={idx}
-                    className="rounded-full bg-[#EFF0F2] px-4 py-[10px] text-[22px] font-medium leading-[27px] text-[#878787]"
+                    className="rounded-full bg-[#EFF0F2] px-[9px] py-[6px] text-[12px] font-medium leading-[16px] text-[#878787]"
                   >
                     {tag}
                   </div>

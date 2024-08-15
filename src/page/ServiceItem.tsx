@@ -83,13 +83,13 @@ const ServiceItem = memo(() => {
 
       <div className="pt-[var(--header-height)_+_48px]">
         <div className="container">
-          <section className="pt-[180px]">
-            <h2 className="second-family pb-[40px] text-center text-[80px] font-semibold leading-[88px]">
+          <section className="pt-[calc(var(--header-height)_+_24px)]">
+            <h2 className="second-family pb-[20px] text-center text-[40px] font-semibold leading-[44px]">
               {data?.services_by_id.title}
             </h2>
 
             {data && data.services_by_id.slider && (
-              <div className="pb-[39px]">
+              <div className="pb-[20px]">
                 <SliderBanner slider={data.services_by_id.slider} />
               </div>
             )}
@@ -99,7 +99,7 @@ const ServiceItem = memo(() => {
             </div>
           </section>
 
-          <div className="flex flex-col pb-[218px]">
+          <div className="flex flex-col pb-[60px]">
             {data &&
               data.services_by_id.serviceItemDirections.map((el) => {
                 if (el.item.__typename === "directions") {

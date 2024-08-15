@@ -23,7 +23,7 @@ const Modal = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogTrigger className="h-fit self-end rounded-full bg-[#DEDEDE] px-[14px] py-[10px] font-medium">
+      <DialogTrigger className="h-fit self-end rounded-full bg-[#DEDEDE] px-[8px] py-[6px] text-[9px] font-medium leading-[10px]">
         Подробнее
       </DialogTrigger>
 

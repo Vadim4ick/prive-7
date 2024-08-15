@@ -22,11 +22,11 @@ const Direction = memo(
 
     return (
       <section>
-        <div data-section="true" className="pt-[180px]">
-          <div className="grid grid-cols-[125px_1.5fr_125px] gap-[47px] pb-[42px]">
+        <div data-section="true" className="pt-[120px]">
+          <div className="grid grid-cols-[70px_1.5fr_70px] gap-[48px] pb-[20px]">
             <div className="flex-1"></div>
 
-            <h2 className="second-family text-center text-[80px] font-semibold leading-[88px]">
+            <h2 className="second-family text-center text-[40px] font-semibold leading-[44px]">
               {el.title}
             </h2>
 
@@ -35,7 +35,7 @@ const Direction = memo(
             )}
           </div>
 
-          <div className={"overflow-hidden rounded-t-3xl bg-white"}>
+          <div className={"overflow-hidden rounded-t-[6px] bg-white"}>
             {el &&
               el.items.map((item) => {
                 return (
@@ -50,15 +50,15 @@ const Direction = memo(
             return (
               <div
                 data-section="true"
-                className="pt-[96px]"
+                className="pt-[48px]"
                 key={el.subDirections_id.id}
               >
-                <div className="grid grid-cols-[125px_1.5fr_125px] gap-[47px] pb-[42px]">
+                <div className="grid grid-cols-[70px_1.5fr_70px] gap-[48px] pb-[20px]">
                   <div className="flex-1"></div>
 
-                  <h3 className="second-family max-w-[768px] text-center text-[48px] font-semibold leading-[53px]">
+                  <h2 className="second-family text-center text-[24px] font-semibold leading-[26px]">
                     {el.subDirections_id.title}
-                  </h3>
+                  </h2>
 
                   {el.subDirections_id.moreDetails && (
                     <Modal
@@ -69,7 +69,7 @@ const Direction = memo(
                   )}
                 </div>
 
-                <div className="overflow-hidden rounded-t-3xl bg-white">
+                <div className="overflow-hidden rounded-t-[6px] bg-white">
                   {el.subDirections_id.items.map((item) => {
                     return (
                       <DirectionItem

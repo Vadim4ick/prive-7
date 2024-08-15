@@ -16,12 +16,14 @@ const ButtonScroll = memo(
       <button
         onClick={onClick}
         data-scroll={el.id}
-        className="flex h-[82px] w-full items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] px-8 text-[28px] font-medium leading-[33px]"
+        className="flex h-[44px] items-center justify-between rounded-full border border-[#DDDDDD] bg-[#E9E9E9] pl-[18px] pr-[22px]"
       >
-        {el.title}
+        <p className="max-w-[256px] overflow-hidden text-ellipsis whitespace-nowrap text-[16px] font-medium leading-[20px]">
+          {el.title}
+        </p>
 
         <div className="flex-shrink-0">
-          <ArrowLink />
+          <ArrowLink className="h-[16px]" />
         </div>
       </button>
     );

@@ -30,14 +30,14 @@ const AccordionServices = memo((props: Props) => {
       )}
       value={`item-${item.id}`}
     >
-      <AccordionTrigger className="flex py-8 pl-[14px] pr-[40px] [&[data-state=open]>div>div>svg]:-rotate-90">
+      <AccordionTrigger className="flex py-[18.5px] pl-[8px] pr-[22px] [&[data-state=open]>div>div>svg]:-rotate-90">
         <DirectionItem
           type="accordion"
           item={item.accordionItems_id.directionItem}
         />
       </AccordionTrigger>
 
-      <AccordionContent className="px-[62px] pb-[90px] text-[28px] leading-[33px] text-[#494949]">
+      <AccordionContent className="pb-[48px] pl-[34px] pr-[22px] text-[16px] leading-[20px] text-[#494949]">
         {item.accordionItems_id.value}
       </AccordionContent>
     </AccordionItem>

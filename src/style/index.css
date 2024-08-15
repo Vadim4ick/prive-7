@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --header-height: 100px;
+    --header-height: 68px;
 
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;

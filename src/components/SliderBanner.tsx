@@ -81,7 +81,7 @@ const SliderBanner = memo(
         {slider.map((slide) => (
           <img
             key={slide.id}
-            className="max-h-[508px] w-full"
+            className="max-h-[290px] w-full object-cover"
             src={`${pathImage(slide.directus_files_id.id)}`}
           />
         ))}
