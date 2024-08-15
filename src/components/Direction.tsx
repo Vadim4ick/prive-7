@@ -22,7 +22,7 @@ const Direction = memo(
 
     return (
       <section>
-        <div data-section="true">
+        <div data-section="true" className="pt-[180px]">
           <div className="grid grid-cols-[125px_1.5fr_125px] gap-[47px] pb-[42px]">
             <div className="flex-1"></div>
 

@@ -30,10 +30,13 @@ const CartService = memo(
             </div>
           </div>
         </div>
-        <img
-          className="absolute bottom-0 right-0"
-          src={pathImage(item.img.id)}
-        />
+
+        {item.img && (
+          <img
+            className="absolute bottom-0 right-0"
+            src={pathImage(item.img.id)}
+          />
+        )}
       </Link>
     );
   },

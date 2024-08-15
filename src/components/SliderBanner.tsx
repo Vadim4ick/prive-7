@@ -20,7 +20,10 @@ const settings: Settings = {
 const SliderBanner = memo(
   ({ slider }: { slider: readonly SliderFragmentFragment[] }) => {
     return (
-      <Slider {...settings} className="flex h-full max-h-[508px] gap-4">
+      <Slider
+        {...settings}
+        className="flex h-full max-h-[508px] gap-4 overflow-hidden"
+      >
         {slider.map((slide) => {
           return (
             <div key={slide.id}>
