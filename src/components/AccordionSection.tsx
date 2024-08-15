@@ -4,8 +4,13 @@ import { Accordion } from "./ui/accordion";
 
 const AccordionSection = ({ el }: { el: AccordionsFragmentFragment }) => {
   return (
-    <section className="pt-[120px]" key={el.id} data-section="true">
-      <h2 className="second-family text-center text-[40px] font-semibold leading-[44px]">
+    <section
+      id={el.id}
+      className="pt-[120px]"
+      key={el.id}
+      data-accordion="true"
+    >
+      <h2 className="second-family pb-[20px] text-center text-[40px] font-semibold leading-[44px]">
         {el.title}
       </h2>
 

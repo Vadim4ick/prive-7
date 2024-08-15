@@ -7,7 +7,6 @@ import {
   GetServicesItemDocument,
   GetServicesItemQuery,
 } from "@/graphql/__generated__";
-import { extractTitles } from "@/lib/utils";
 import React, {
   memo,
   useCallback,
@@ -25,7 +24,7 @@ const ServiceItem = memo(() => {
 
   const sectionRefs = useRef<HTMLElement[]>([]);
   const [titlesAndIds, setTitlesAndIds] = useState<
-    { title: string; id: string }[]
+    { title: string; id: string; section: string }[]
   >([]);
 
   const { loading, error, data } = useQuery<GetServicesItemQuery>(
@@ -37,26 +36,35 @@ const ServiceItem = memo(() => {
 
   useEffect(() => {
     if (data) {
-      const extractedTitles = data.services_by_id.serviceItemDirections.flatMap(
-        (dir) =>
-          extractTitles(dir.item).map(({ id, title }) => ({
-            id: id.toString(), // Преобразование id в строку
-            title,
-          })),
-      );
+      const arr = [] as { title: string; id: string; section: string }[];
 
-      setTitlesAndIds(extractedTitles);
+      data.services_by_id.serviceItemDirections.map((el) => {
+        arr.push({
+          title: el.item.title,
+          id: el.item.id.toString(),
+          section:
+            el.item.__typename === "accordionsSection"
+              ? "accordion"
+              : "section",
+        });
+      });
+
+      setTitlesAndIds(arr);
     }
   }, [data]);
 
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      const scrollElementId = e.currentTarget.dataset.scroll;
-      const scrollElement =
-        sectionRefs.current[parseInt(scrollElementId || "0", 10) - 1];
+      const [sectionName, id] = e.currentTarget.dataset.scroll?.split(
+        "-",
+      ) as string[];
 
-      if (scrollElement) {
-        scrollElement.scrollIntoView({ behavior: "smooth" });
+      const elementToScroll = sectionRefs.current.find(
+        (element) => element.getAttribute(`data-${sectionName}-id`) == id,
+      );
+
+      if (elementToScroll) {
+        elementToScroll.scrollIntoView({ behavior: "smooth" });
       }
     },
     [],
@@ -64,9 +72,15 @@ const ServiceItem = memo(() => {
 
   const buttonScroll = useMemo(() => {
     return titlesAndIds.map((el) => {
-      return <ButtonScroll key={el.id} el={el} onClick={onClick} />;
+      return (
+        <ButtonScroll
+          key={`${el.section}-${el.id}`}
+          el={el}
+          onClick={onClick}
+        />
+      );
     });
-  }, [titlesAndIds]);
+  }, [onClick, titlesAndIds]);
 
   if (loading)
     return (

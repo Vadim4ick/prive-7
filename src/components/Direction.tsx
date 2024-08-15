@@ -13,16 +13,27 @@ const Direction = memo(
   }) => {
     useEffect(() => {
       const sections = document.querySelectorAll("[data-section='true']");
+      const accordions = document.querySelectorAll("[data-accordion='true']");
 
-      sections.forEach((section, index) => {
-        refs.current[index] = section as HTMLElement;
-        section.setAttribute("data-section-id", `${index + 1}`);
+      // Очищаем refs перед добавлением новых элементов
+      refs.current = [];
+
+      // Добавляем секции в refs и устанавливаем data-section-id
+      sections.forEach((section) => {
+        refs.current.push(section as HTMLElement);
+        section.setAttribute("data-section-id", `${section.id}`);
+      });
+
+      // Добавляем аккордеоны в refs и устанавливаем data-accordion-id
+      accordions.forEach((accordion) => {
+        refs.current.push(accordion as HTMLElement);
+        accordion.setAttribute("data-accordion-id", `${accordion.id}`);
       });
     }, [refs]);
 
     return (
       <section>
-        <div data-section="true" className="pt-[120px]">
+        <div id={el.id} data-section="true" className="pt-[120px]">
           <div className="grid grid-cols-[70px_1.5fr_70px] gap-[48px] pb-[20px]">
             <div className="flex-1"></div>
 

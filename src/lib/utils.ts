@@ -26,19 +26,32 @@ export const pathImage = (id: string) => {
   return `${import.meta.env.VITE_SERVER_URL}/assets/${id}`;
 };
 
-let counter = 1;
-export const extractTitles = (data: any): { id: number; title: string }[] => {
-  const result: { id: number; title: string }[] = [];
+// let counter = 1;
+// export const extractTitles = (data: any): { id: number; title: string }[] => {
+//   const result: { id: number; title: string }[] = [];
 
-  if (data.title) {
-    result.push({ id: counter++, title: data.title });
-  }
+//   if (data.title) {
+//     result.push({ id: counter++, title: data.title });
+//   }
 
-  // if (data.subDirections) {
-  //   data.subDirections.forEach((sub: any) => {
-  //     result = result.concat(extractTitles(sub.subDirections_id));
-  //   });
-  // }
+//   // if (data.subDirections) {
+//   //   data.subDirections.forEach((sub: any) => {
+//   //     result = result.concat(extractTitles(sub.subDirections_id));
+//   //   });
+//   // }
 
-  return result;
-};
+//   return result;
+// };
+
+// export const extractTitles = (data: any): { id: number; title: string }[] => {
+//   // Declare the counter variable outside of the function scope
+//   let counter = 1;
+
+//   const result: { id: number; title: string }[] = [];
+
+//   if (data.title) {
+//     result.push({ id: counter++, title: data.title });
+//   }
+
+//   return result;
+// };
