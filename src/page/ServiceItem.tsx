@@ -99,7 +99,7 @@ const ServiceItem = memo(() => {
             </div>
           </section>
 
-          <div className="flex flex-col pb-[60px]">
+          <div className="flex flex-col px-1 pb-[60px]">
             {data &&
               data.services_by_id.serviceItemDirections.map((el) => {
                 if (el.item.__typename === "directions") {

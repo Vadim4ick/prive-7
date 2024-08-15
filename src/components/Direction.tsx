@@ -48,11 +48,7 @@ const Direction = memo(
         {el.subDirections &&
           el.subDirections.map((el) => {
             return (
-              <div
-                data-section="true"
-                className="pt-[48px]"
-                key={el.subDirections_id.id}
-              >
+              <div className="pt-[48px]" key={el.subDirections_id.id}>
                 <div className="grid grid-cols-[70px_1.5fr_70px] gap-[48px] pb-[20px]">
                   <div className="flex-1"></div>
 

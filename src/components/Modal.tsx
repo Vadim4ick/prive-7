@@ -27,11 +27,11 @@ const Modal = ({
         Подробнее
       </DialogTrigger>
 
-      <DialogContent className="p w-full max-w-[1200px] items-center justify-center rounded-none border-none bg-transparent px-[44px]">
-        <div className="flex w-full flex-col items-center justify-center gap-[36px] rounded-[8px] bg-white px-[48px] pb-[36px] pt-[48px]">
+      <DialogContent className="p w-full max-w-[686px] items-center justify-center rounded-none border-none bg-transparent px-[24px]">
+        <div className="flex w-full flex-col items-center justify-center gap-[20px] rounded-[8px] bg-white px-[28.6px] pb-[20px] pt-[24px]">
           <DialogTitle
             className={cn(
-              "max-w-[768px] text-center text-[48px] font-semibold leading-[52px] text-[#111111]",
+              "max-w-[440px] text-center text-[24px] font-semibold leading-[26px] text-[#111111]",
               {
                 "second-family": titleFont === "second",
               },
@@ -40,13 +40,13 @@ const Modal = ({
             {title}
           </DialogTitle>
 
-          <DialogDescription className="w-full bg-[#F2F2F2] p-[28px] text-[28px] leading-[36px] text-[#444444]">
+          <DialogDescription className="w-full bg-[#F2F2F2] p-[16px] text-[16px] leading-[21px] text-[#444444]">
             {description}
           </DialogDescription>
 
           <button
             onClick={handleOpenChange}
-            className="h-[72px] w-full max-w-[320px] bg-[#111111] text-[22px] font-medium text-white"
+            className="h-[40px] w-full max-w-[180px] bg-[#111111] text-[12.6px] font-medium leading-[15px] text-white"
           >
             Ясно, спасибо
           </button>

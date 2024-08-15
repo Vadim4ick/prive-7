@@ -28,17 +28,17 @@ export const pathImage = (id: string) => {
 
 let counter = 1;
 export const extractTitles = (data: any): { id: number; title: string }[] => {
-  let result: { id: number; title: string }[] = [];
+  const result: { id: number; title: string }[] = [];
 
   if (data.title) {
     result.push({ id: counter++, title: data.title });
   }
 
-  if (data.subDirections) {
-    data.subDirections.forEach((sub: any) => {
-      result = result.concat(extractTitles(sub.subDirections_id));
-    });
-  }
+  // if (data.subDirections) {
+  //   data.subDirections.forEach((sub: any) => {
+  //     result = result.concat(extractTitles(sub.subDirections_id));
+  //   });
+  // }
 
   return result;
 };
