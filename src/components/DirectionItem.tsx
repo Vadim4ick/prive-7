@@ -15,13 +15,13 @@ const DirectionItem = memo(({ item, type = "default" }: Props) => {
       <p className="text-[18px] font-medium leading-[22px]">{item.title}</p>
 
       {item.sale > 0 && (
-        <span className="h-fit rounded-full bg-[#F5DF8F] px-[8px] py-[4px] text-[10px] font-semibold uppercase leading-[12px] text-[#665107]">
+        <span className="mt-[2px] h-fit rounded-full bg-[#F5DF8F] px-[8px] py-[4px] text-[10px] font-semibold uppercase leading-[12px] text-[#665107]">
           SALE {item.sale}%
         </span>
       )}
 
       {item.is_new && (
-        <span className="h-fit rounded-full bg-[#C9EA93] px-[8px] py-[4px] text-[10px] font-semibold uppercase leading-[12px] text-[#406700]">
+        <span className="mt-[2px] h-fit rounded-full bg-[#C9EA93] px-[8px] py-[4px] text-[10px] font-semibold uppercase leading-[12px] text-[#406700]">
           NEW
         </span>
       )}
