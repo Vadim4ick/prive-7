@@ -40,13 +40,13 @@ const Modal = ({
             {title}
           </DialogTitle>
 
-          <DialogDescription className="w-full bg-[#F2F2F2] p-[16px] text-[16px] leading-[21px] text-[#444444]">
+          <DialogDescription className="w-full rounded-[4px] bg-[#F2F2F2] p-[16px] text-[16px] leading-[21px] text-[#444444]">
             {description}
           </DialogDescription>
 
           <button
             onClick={handleOpenChange}
-            className="h-[40px] w-full max-w-[180px] bg-[#111111] text-[12.6px] font-medium leading-[15px] text-white"
+            className="h-[40px] w-full max-w-[180px] rounded-[4px] bg-[#111111] text-[12.6px] font-medium leading-[15px] text-white"
           >
             Ясно, спасибо
           </button>

@@ -26,7 +26,7 @@ const AccordionSection = ({ el }: { el: AccordionsFragmentFragment }) => {
                 {accordion.accordionBlock_id.title}
               </h4>
 
-              <div className="overflow-hidden rounded-t-[6px] bg-white">
+              <div className="overflow-hidden rounded-[8px]">
                 {accordion.accordionBlock_id.items.map((item, idx) => {
                   return <AccordionServices key={idx} item={item} />;
                 })}

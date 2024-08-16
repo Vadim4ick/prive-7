@@ -76,7 +76,7 @@ const SliderBanner = memo(
         {...settings}
         ref={sliderRef}
         afterChange={handleAfterChange}
-        className="overflow-hidden"
+        className="overflow-hidden rounded-[8px]"
       >
         {slider.map((slide) => (
           <img
