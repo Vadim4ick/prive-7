@@ -1,7 +1,14 @@
 import { DirectionsFragmentFragment } from "@/graphql/__generated__";
-import { memo, useEffect } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Modal } from "./Modal";
 import { DirectionItem } from "./DirectionItem";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/accordion";
+import { cn } from "@/lib/utils";
 
 const Direction = memo(
   ({
@@ -11,9 +18,17 @@ const Direction = memo(
     el: DirectionsFragmentFragment;
     refs: React.MutableRefObject<HTMLElement[]>;
   }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const accordionRef = useRef(null);
+
+    const handleToggle = () => {
+      setIsOpen((prev) => !prev);
+    };
+
     useEffect(() => {
       const sections = document.querySelectorAll("[data-section='true']");
-      const accordions = document.querySelectorAll("[data-accordion='true']");
+      // const accordions = document.querySelectorAll("[data-accordion='true']");
 
       // Очищаем refs перед добавлением новых элементов
       refs.current = [];
@@ -25,11 +40,21 @@ const Direction = memo(
       });
 
       // Добавляем аккордеоны в refs и устанавливаем data-accordion-id
-      accordions.forEach((accordion) => {
-        refs.current.push(accordion as HTMLElement);
-        accordion.setAttribute("data-accordion-id", `${accordion.id}`);
-      });
+      // accordions.forEach((accordion) => {
+      //   refs.current.push(accordion as HTMLElement);
+      //   accordion.setAttribute("data-accordion-id", `${accordion.id}`);
+      // });
     }, [refs]);
+
+    useEffect(() => {
+      if (isOpen && accordionRef.current) {
+        // Скролл до аккордеона после того, как он стал открытым
+        (accordionRef.current as HTMLElement).scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+    }, [isOpen]);
 
     return (
       <section>
@@ -49,6 +74,49 @@ const Direction = memo(
           <div className={"overflow-hidden rounded-[8px]"}>
             {el &&
               el.items.map((item) => {
+                if (item.directionItem_id.value) {
+                  return (
+                    <Accordion
+                      type="single"
+                      collapsible
+                      className="flex w-full flex-col gap-[48px]"
+                    >
+                      <AccordionItem
+                        className={cn(
+                          "relative bg-white",
+                          {
+                            "after:absolute after:bottom-0 after:left-0 after:h-full after:border-l-[4px] after:border-[#F5DF8F]":
+                              item.directionItem_id.sale > 0,
+                          },
+                          {
+                            "after:absolute after:bottom-0 after:h-full after:border-l-[4px] after:border-[#C9EA93]":
+                              item.directionItem_id.is_new,
+                          },
+                        )}
+                        value={`item-${item.id}`}
+                      >
+                        <AccordionTrigger
+                          onClick={handleToggle}
+                          className="flex py-[18.5px] pl-[8px] pr-[22px] [&[data-state=open]>div>div>svg]:-rotate-90"
+                        >
+                          <DirectionItem
+                            type="accordion"
+                            key={item.id}
+                            item={item.directionItem_id}
+                          />
+                        </AccordionTrigger>
+
+                        <AccordionContent className="pb-[48px] pl-[34px] pr-[22px] text-[16px] leading-[20px] text-[#494949]">
+                          <p ref={accordionRef}>
+                            {" "}
+                            {item.directionItem_id.value}
+                          </p>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  );
+                }
+
                 return (
                   <DirectionItem key={item.id} item={item.directionItem_id} />
                 );
@@ -78,9 +146,52 @@ const Direction = memo(
 
                 <div className="overflow-hidden rounded-[8px]">
                   {el.subDirections_id.items.map((item) => {
+                    if (item.directionItem_id.value) {
+                      return (
+                        <Accordion
+                          type="single"
+                          collapsible
+                          className="flex w-full flex-col gap-[48px]"
+                        >
+                          <AccordionItem
+                            className={cn(
+                              "relative bg-white",
+                              {
+                                "after:absolute after:bottom-0 after:left-0 after:h-full after:border-l-[4px] after:border-[#F5DF8F]":
+                                  item.directionItem_id.sale > 0,
+                              },
+                              {
+                                "after:absolute after:bottom-0 after:h-full after:border-l-[4px] after:border-[#C9EA93]":
+                                  item.directionItem_id.is_new,
+                              },
+                            )}
+                            value={`item-${item.id}`}
+                          >
+                            <AccordionTrigger
+                              onClick={handleToggle}
+                              className="flex py-[18.5px] pl-[8px] pr-[22px] [&[data-state=open]>div>div>svg]:-rotate-90"
+                            >
+                              <DirectionItem
+                                type="accordion"
+                                key={item.id}
+                                item={item.directionItem_id}
+                              />
+                            </AccordionTrigger>
+
+                            <AccordionContent className="pb-[48px] pl-[34px] pr-[22px] text-[16px] leading-[20px] text-[#494949]">
+                              <p ref={accordionRef}>
+                                {" "}
+                                {item.directionItem_id.value}
+                              </p>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
+                      );
+                    }
+
                     return (
                       <DirectionItem
-                        key={item.directionItem_id.id}
+                        key={item.id}
                         item={item.directionItem_id}
                       />
                     );

@@ -6,16 +6,11 @@ query GetServicesItem($id: ID!) {
       ...SliderFragment
     }
 
-    serviceItemDirections {
+    serviceItemBlock {
       id
-      item {
-        ... on directions {
-          ...DirectionsFragment
-        }
 
-        ... on accordionsSection {
-          ...AccordionsFragment
-        }
+      directions_id {
+        ...DirectionsFragment
       }
     }
   }

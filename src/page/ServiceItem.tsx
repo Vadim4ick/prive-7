@@ -16,7 +16,6 @@ import React, {
   useState,
 } from "react";
 import { ButtonScroll } from "@/components/ButtonScroll";
-import { AccordionSection } from "@/components/AccordionSection";
 import { Loader } from "@/components/ui/loader";
 
 const ServiceItem = memo(() => {
@@ -38,14 +37,11 @@ const ServiceItem = memo(() => {
     if (data) {
       const arr = [] as { title: string; id: string; section: string }[];
 
-      data.services_by_id.serviceItemDirections.map((el) => {
+      data.services_by_id.serviceItemBlock.map((el) => {
         arr.push({
-          title: el.item.title,
-          id: el.item.id.toString(),
-          section:
-            el.item.__typename === "accordionsSection"
-              ? "accordion"
-              : "section",
+          title: el.directions_id.title,
+          id: el.directions_id.id.toString(),
+          section: "section",
         });
       });
 
@@ -115,6 +111,16 @@ const ServiceItem = memo(() => {
 
           <div className="flex flex-col px-1 pb-[200px]">
             {data &&
+              data.services_by_id.serviceItemBlock.map((el) => {
+                return (
+                  <Direction
+                    key={el.id}
+                    el={el.directions_id}
+                    refs={sectionRefs}
+                  />
+                );
+              })}
+            {/* {data &&
               data.services_by_id.serviceItemDirections.map((el) => {
                 if (el.item.__typename === "directions") {
                   return (
@@ -123,7 +129,7 @@ const ServiceItem = memo(() => {
                 } else if (el.item.__typename === "accordionsSection") {
                   return <AccordionSection key={el.id} el={el.item} />;
                 }
-              })}
+              })} */}
           </div>
         </div>
       </div>
