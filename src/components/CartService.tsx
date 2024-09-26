@@ -17,16 +17,17 @@ const CartService = memo(
             </h3>
 
             <div className="flex flex-wrap gap-2">
-              {item.tags.map((tag: string, idx: number) => {
-                return (
-                  <div
-                    key={idx}
-                    className="rounded-full bg-[#EFF0F2] px-[9px] py-[6px] text-[12px] font-medium leading-[16px] text-[#878787]"
-                  >
-                    {tag}
-                  </div>
-                );
-              })}
+              {item.tags &&
+                item.tags.map((tag: string, idx: number) => {
+                  return (
+                    <div
+                      key={idx}
+                      className="rounded-full bg-[#EFF0F2] px-[9px] py-[6px] text-[12px] font-medium leading-[16px] text-[#878787]"
+                    >
+                      {tag}
+                    </div>
+                  );
+                })}
             </div>
           </div>
         </div>
