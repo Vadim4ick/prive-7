@@ -5,6 +5,7 @@ fragment ServiceFragment on directionItem {
   price
   sale
   is_new
+  is_fromPrice
 
   value
 }

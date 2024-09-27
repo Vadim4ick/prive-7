@@ -28,6 +28,190 @@ export enum EventEnum {
   Update = 'update'
 }
 
+export type Mutation = {
+  readonly __typename?: 'Mutation';
+  readonly create_directionItem_item: Maybe<DirectionItem>;
+  readonly create_directionItem_items: ReadonlyArray<DirectionItem>;
+  readonly create_directions_directionItem_item: Maybe<Directions_DirectionItem>;
+  readonly create_directions_directionItem_items: ReadonlyArray<Directions_DirectionItem>;
+  readonly create_directions_item: Maybe<Directions>;
+  readonly create_directions_items: ReadonlyArray<Directions>;
+  readonly create_directions_subDirections_item: Maybe<Directions_SubDirections>;
+  readonly create_directions_subDirections_items: ReadonlyArray<Directions_SubDirections>;
+  readonly create_services_directions_item: Maybe<Services_Directions>;
+  readonly create_services_directions_items: ReadonlyArray<Services_Directions>;
+  readonly create_services_files_item: Maybe<Services_Files>;
+  readonly create_services_files_items: ReadonlyArray<Services_Files>;
+  readonly create_services_item: Maybe<Services>;
+  readonly create_services_items: ReadonlyArray<Services>;
+  readonly create_services_serviceItemDirections_item: Maybe<Services_ServiceItemDirections>;
+  readonly create_services_serviceItemDirections_items: ReadonlyArray<Services_ServiceItemDirections>;
+  readonly create_subDirections_directionItem_item: Maybe<SubDirections_DirectionItem>;
+  readonly create_subDirections_directionItem_items: ReadonlyArray<SubDirections_DirectionItem>;
+  readonly create_subDirections_item: Maybe<SubDirections>;
+  readonly create_subDirections_items: ReadonlyArray<SubDirections>;
+};
+
+
+export type MutationCreate_DirectionItem_ItemArgs = {
+  data: Create_DirectionItem_Input;
+};
+
+
+export type MutationCreate_DirectionItem_ItemsArgs = {
+  data: InputMaybe<ReadonlyArray<Create_DirectionItem_Input>>;
+  filter: InputMaybe<DirectionItem_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type MutationCreate_Directions_DirectionItem_ItemArgs = {
+  data: Create_Directions_DirectionItem_Input;
+};
+
+
+export type MutationCreate_Directions_DirectionItem_ItemsArgs = {
+  data: InputMaybe<ReadonlyArray<Create_Directions_DirectionItem_Input>>;
+  filter: InputMaybe<Directions_DirectionItem_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type MutationCreate_Directions_ItemArgs = {
+  data: Create_Directions_Input;
+};
+
+
+export type MutationCreate_Directions_ItemsArgs = {
+  data: InputMaybe<ReadonlyArray<Create_Directions_Input>>;
+  filter: InputMaybe<Directions_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type MutationCreate_Directions_SubDirections_ItemArgs = {
+  data: Create_Directions_SubDirections_Input;
+};
+
+
+export type MutationCreate_Directions_SubDirections_ItemsArgs = {
+  data: InputMaybe<ReadonlyArray<Create_Directions_SubDirections_Input>>;
+  filter: InputMaybe<Directions_SubDirections_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type MutationCreate_Services_Directions_ItemArgs = {
+  data: Create_Services_Directions_Input;
+};
+
+
+export type MutationCreate_Services_Directions_ItemsArgs = {
+  data: InputMaybe<ReadonlyArray<Create_Services_Directions_Input>>;
+  filter: InputMaybe<Services_Directions_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type MutationCreate_Services_Files_ItemArgs = {
+  data: Create_Services_Files_Input;
+};
+
+
+export type MutationCreate_Services_Files_ItemsArgs = {
+  data: InputMaybe<ReadonlyArray<Create_Services_Files_Input>>;
+  filter: InputMaybe<Services_Files_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type MutationCreate_Services_ItemArgs = {
+  data: Create_Services_Input;
+};
+
+
+export type MutationCreate_Services_ItemsArgs = {
+  data: InputMaybe<ReadonlyArray<Create_Services_Input>>;
+  filter: InputMaybe<Services_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type MutationCreate_Services_ServiceItemDirections_ItemArgs = {
+  data: Create_Services_ServiceItemDirections_Input;
+};
+
+
+export type MutationCreate_Services_ServiceItemDirections_ItemsArgs = {
+  data: InputMaybe<ReadonlyArray<Create_Services_ServiceItemDirections_Input>>;
+  filter: InputMaybe<Services_ServiceItemDirections_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type MutationCreate_SubDirections_DirectionItem_ItemArgs = {
+  data: Create_SubDirections_DirectionItem_Input;
+};
+
+
+export type MutationCreate_SubDirections_DirectionItem_ItemsArgs = {
+  data: InputMaybe<ReadonlyArray<Create_SubDirections_DirectionItem_Input>>;
+  filter: InputMaybe<SubDirections_DirectionItem_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type MutationCreate_SubDirections_ItemArgs = {
+  data: Create_SubDirections_Input;
+};
+
+
+export type MutationCreate_SubDirections_ItemsArgs = {
+  data: InputMaybe<ReadonlyArray<Create_SubDirections_Input>>;
+  filter: InputMaybe<SubDirections_Filter>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  page: InputMaybe<Scalars['Int']['input']>;
+  search: InputMaybe<Scalars['String']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type Query = {
   readonly __typename?: 'Query';
   readonly directionItem: ReadonlyArray<DirectionItem>;
@@ -551,6 +735,157 @@ export type Count_Functions = {
   readonly count: Maybe<Scalars['Int']['output']>;
 };
 
+export type Create_DirectionItem_Input = {
+  readonly desc: InputMaybe<Scalars['String']['input']>;
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly is_fromPrice: InputMaybe<Scalars['Boolean']['input']>;
+  readonly is_new: InputMaybe<Scalars['Boolean']['input']>;
+  readonly price: InputMaybe<Scalars['Int']['input']>;
+  readonly sale: InputMaybe<Scalars['Int']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+  readonly value: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Create_Directions_DirectionItem_Input = {
+  readonly directionItem_id: InputMaybe<Create_DirectionItem_Input>;
+  readonly directions_id: InputMaybe<Create_Directions_Input>;
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type Create_Directions_Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly items: InputMaybe<ReadonlyArray<InputMaybe<Create_Directions_DirectionItem_Input>>>;
+  /** Появляется при нажатии на кнопку "Подробнее" */
+  readonly moreDetails: InputMaybe<Scalars['String']['input']>;
+  readonly subDirections: InputMaybe<ReadonlyArray<InputMaybe<Create_Directions_SubDirections_Input>>>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Create_Directions_SubDirections_Input = {
+  readonly directions_id: InputMaybe<Create_Directions_Input>;
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly subDirections_id: InputMaybe<Create_SubDirections_Input>;
+};
+
+export type Create_Directus_Files_Input = {
+  readonly charset: InputMaybe<Scalars['String']['input']>;
+  readonly created_on: InputMaybe<Scalars['Date']['input']>;
+  readonly description: InputMaybe<Scalars['String']['input']>;
+  readonly duration: InputMaybe<Scalars['Int']['input']>;
+  readonly embed: InputMaybe<Scalars['String']['input']>;
+  readonly filename_disk: InputMaybe<Scalars['String']['input']>;
+  readonly filename_download: Scalars['String']['input'];
+  readonly filesize: InputMaybe<Scalars['GraphQLBigInt']['input']>;
+  readonly focal_point_x: InputMaybe<Scalars['Int']['input']>;
+  readonly focal_point_y: InputMaybe<Scalars['Int']['input']>;
+  readonly folder: InputMaybe<Create_Directus_Folders_Input>;
+  readonly height: InputMaybe<Scalars['Int']['input']>;
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly location: InputMaybe<Scalars['String']['input']>;
+  readonly metadata: InputMaybe<Scalars['JSON']['input']>;
+  readonly modified_by: InputMaybe<Create_Directus_Users_Input>;
+  readonly modified_on: InputMaybe<Scalars['Date']['input']>;
+  readonly storage: Scalars['String']['input'];
+  readonly tags: InputMaybe<Scalars['JSON']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+  readonly tus_data: InputMaybe<Scalars['JSON']['input']>;
+  readonly tus_id: InputMaybe<Scalars['String']['input']>;
+  readonly type: InputMaybe<Scalars['String']['input']>;
+  readonly uploaded_by: InputMaybe<Create_Directus_Users_Input>;
+  readonly uploaded_on: InputMaybe<Scalars['Date']['input']>;
+  readonly width: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type Create_Directus_Folders_Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly name: Scalars['String']['input'];
+  readonly parent: InputMaybe<Create_Directus_Folders_Input>;
+};
+
+export type Create_Directus_Roles_Input = {
+  readonly children: InputMaybe<ReadonlyArray<InputMaybe<Create_Directus_Roles_Input>>>;
+  readonly description: InputMaybe<Scalars['String']['input']>;
+  readonly icon: InputMaybe<Scalars['String']['input']>;
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly name: Scalars['String']['input'];
+  readonly parent: InputMaybe<Create_Directus_Roles_Input>;
+  readonly policies: InputMaybe<Scalars['String']['input']>;
+  readonly users: InputMaybe<ReadonlyArray<InputMaybe<Create_Directus_Users_Input>>>;
+};
+
+export type Create_Directus_Users_Input = {
+  readonly appearance: InputMaybe<Scalars['String']['input']>;
+  readonly auth_data: InputMaybe<Scalars['JSON']['input']>;
+  readonly avatar: InputMaybe<Create_Directus_Files_Input>;
+  readonly description: InputMaybe<Scalars['String']['input']>;
+  readonly email: InputMaybe<Scalars['String']['input']>;
+  readonly email_notifications: InputMaybe<Scalars['Boolean']['input']>;
+  readonly external_identifier: InputMaybe<Scalars['String']['input']>;
+  readonly first_name: InputMaybe<Scalars['String']['input']>;
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly language: InputMaybe<Scalars['String']['input']>;
+  readonly last_access: InputMaybe<Scalars['Date']['input']>;
+  readonly last_name: InputMaybe<Scalars['String']['input']>;
+  readonly last_page: InputMaybe<Scalars['String']['input']>;
+  readonly location: InputMaybe<Scalars['String']['input']>;
+  readonly password: InputMaybe<Scalars['Hash']['input']>;
+  readonly policies: InputMaybe<Scalars['String']['input']>;
+  readonly provider: InputMaybe<Scalars['String']['input']>;
+  readonly role: InputMaybe<Create_Directus_Roles_Input>;
+  readonly status: InputMaybe<Scalars['String']['input']>;
+  readonly tags: InputMaybe<Scalars['JSON']['input']>;
+  readonly tfa_secret: InputMaybe<Scalars['Hash']['input']>;
+  readonly theme_dark: InputMaybe<Scalars['String']['input']>;
+  readonly theme_dark_overrides: InputMaybe<Scalars['JSON']['input']>;
+  readonly theme_light: InputMaybe<Scalars['String']['input']>;
+  readonly theme_light_overrides: InputMaybe<Scalars['JSON']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+  readonly token: InputMaybe<Scalars['Hash']['input']>;
+};
+
+export type Create_Services_Directions_Input = {
+  readonly directions_id: InputMaybe<Create_Directions_Input>;
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly services_id: InputMaybe<Create_Services_Input>;
+};
+
+export type Create_Services_Files_Input = {
+  readonly directus_files_id: InputMaybe<Create_Directus_Files_Input>;
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly services_id: InputMaybe<Create_Services_Input>;
+};
+
+export type Create_Services_Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly img: InputMaybe<Create_Directus_Files_Input>;
+  readonly serviceItemBlock: InputMaybe<ReadonlyArray<InputMaybe<Create_Services_Directions_Input>>>;
+  readonly slider: InputMaybe<ReadonlyArray<InputMaybe<Create_Services_Files_Input>>>;
+  /** (Чистка, пилинг, ...) */
+  readonly tags: InputMaybe<Scalars['JSON']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Create_Services_ServiceItemDirections_Input = {
+  readonly collection: InputMaybe<Scalars['String']['input']>;
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly item: InputMaybe<Scalars['String']['input']>;
+  readonly services_id: InputMaybe<Create_Services_Input>;
+};
+
+export type Create_SubDirections_DirectionItem_Input = {
+  readonly directionItem_id: InputMaybe<Create_DirectionItem_Input>;
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly subDirections_id: InputMaybe<Create_SubDirections_Input>;
+};
+
+export type Create_SubDirections_Input = {
+  readonly id: InputMaybe<Scalars['ID']['input']>;
+  readonly items: InputMaybe<ReadonlyArray<InputMaybe<Create_SubDirections_DirectionItem_Input>>>;
+  /** При нажатии на кнопку "Подробнее" */
+  readonly moreDetails: InputMaybe<Scalars['String']['input']>;
+  readonly title: InputMaybe<Scalars['String']['input']>;
+};
+
 export type Date_Filter_Operators = {
   readonly _between: InputMaybe<ReadonlyArray<InputMaybe<Scalars['GraphQLStringOrFloat']['input']>>>;
   readonly _eq: InputMaybe<Scalars['String']['input']>;
@@ -593,6 +928,7 @@ export type DirectionItem = {
   readonly __typename?: 'directionItem';
   readonly desc: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
+  readonly is_fromPrice: Maybe<Scalars['Boolean']['output']>;
   readonly is_new: Maybe<Scalars['Boolean']['output']>;
   readonly price: Maybe<Scalars['Int']['output']>;
   readonly sale: Maybe<Scalars['Int']['output']>;
@@ -618,6 +954,7 @@ export type DirectionItem_Aggregated_Count = {
   readonly __typename?: 'directionItem_aggregated_count';
   readonly desc: Maybe<Scalars['Int']['output']>;
   readonly id: Maybe<Scalars['Int']['output']>;
+  readonly is_fromPrice: Maybe<Scalars['Int']['output']>;
   readonly is_new: Maybe<Scalars['Int']['output']>;
   readonly price: Maybe<Scalars['Int']['output']>;
   readonly sale: Maybe<Scalars['Int']['output']>;
@@ -637,6 +974,7 @@ export type DirectionItem_Filter = {
   readonly _or: InputMaybe<ReadonlyArray<InputMaybe<DirectionItem_Filter>>>;
   readonly desc: InputMaybe<String_Filter_Operators>;
   readonly id: InputMaybe<Number_Filter_Operators>;
+  readonly is_fromPrice: InputMaybe<Boolean_Filter_Operators>;
   readonly is_new: InputMaybe<Boolean_Filter_Operators>;
   readonly price: InputMaybe<Number_Filter_Operators>;
   readonly sale: InputMaybe<Number_Filter_Operators>;
@@ -1857,7 +2195,8 @@ export type SubDirections_Mutated = {
 export type Version_DirectionItem = {
   readonly __typename?: 'version_directionItem';
   readonly desc: Maybe<Scalars['String']['output']>;
-  readonly id: Scalars['ID']['output'];
+  readonly id: Maybe<Scalars['ID']['output']>;
+  readonly is_fromPrice: Maybe<Scalars['Boolean']['output']>;
   readonly is_new: Maybe<Scalars['Boolean']['output']>;
   readonly price: Maybe<Scalars['Int']['output']>;
   readonly sale: Maybe<Scalars['Int']['output']>;
@@ -1867,13 +2206,11 @@ export type Version_DirectionItem = {
 
 export type Version_Directions = {
   readonly __typename?: 'version_directions';
-  readonly id: Scalars['ID']['output'];
+  readonly id: Maybe<Scalars['ID']['output']>;
   readonly items: Maybe<Scalars['JSON']['output']>;
-  readonly items_func: Maybe<Count_Functions>;
   /** Появляется при нажатии на кнопку "Подробнее" */
   readonly moreDetails: Maybe<Scalars['String']['output']>;
   readonly subDirections: Maybe<Scalars['JSON']['output']>;
-  readonly subDirections_func: Maybe<Count_Functions>;
   readonly title: Maybe<Scalars['String']['output']>;
 };
 
@@ -1881,57 +2218,53 @@ export type Version_Directions_DirectionItem = {
   readonly __typename?: 'version_directions_directionItem';
   readonly directionItem_id: Maybe<Scalars['JSON']['output']>;
   readonly directions_id: Maybe<Scalars['JSON']['output']>;
-  readonly id: Scalars['ID']['output'];
+  readonly id: Maybe<Scalars['ID']['output']>;
 };
 
 export type Version_Directions_SubDirections = {
   readonly __typename?: 'version_directions_subDirections';
   readonly directions_id: Maybe<Scalars['JSON']['output']>;
-  readonly id: Scalars['ID']['output'];
+  readonly id: Maybe<Scalars['ID']['output']>;
   readonly subDirections_id: Maybe<Scalars['JSON']['output']>;
 };
 
 export type Version_Services = {
   readonly __typename?: 'version_services';
-  readonly id: Scalars['ID']['output'];
+  readonly id: Maybe<Scalars['ID']['output']>;
   readonly img: Maybe<Scalars['JSON']['output']>;
   readonly serviceItemBlock: Maybe<Scalars['JSON']['output']>;
-  readonly serviceItemBlock_func: Maybe<Count_Functions>;
   readonly slider: Maybe<Scalars['JSON']['output']>;
-  readonly slider_func: Maybe<Count_Functions>;
   /** (Чистка, пилинг, ...) */
   readonly tags: Maybe<Scalars['JSON']['output']>;
-  readonly tags_func: Maybe<Count_Functions>;
   readonly title: Maybe<Scalars['String']['output']>;
 };
 
 export type Version_Services_Directions = {
   readonly __typename?: 'version_services_directions';
   readonly directions_id: Maybe<Scalars['JSON']['output']>;
-  readonly id: Scalars['ID']['output'];
+  readonly id: Maybe<Scalars['ID']['output']>;
   readonly services_id: Maybe<Scalars['JSON']['output']>;
 };
 
 export type Version_Services_Files = {
   readonly __typename?: 'version_services_files';
   readonly directus_files_id: Maybe<Scalars['JSON']['output']>;
-  readonly id: Scalars['ID']['output'];
+  readonly id: Maybe<Scalars['ID']['output']>;
   readonly services_id: Maybe<Scalars['JSON']['output']>;
 };
 
 export type Version_Services_ServiceItemDirections = {
   readonly __typename?: 'version_services_serviceItemDirections';
   readonly collection: Maybe<Scalars['String']['output']>;
-  readonly id: Scalars['ID']['output'];
+  readonly id: Maybe<Scalars['ID']['output']>;
   readonly item: Maybe<Scalars['String']['output']>;
   readonly services_id: Maybe<Scalars['JSON']['output']>;
 };
 
 export type Version_SubDirections = {
   readonly __typename?: 'version_subDirections';
-  readonly id: Scalars['ID']['output'];
+  readonly id: Maybe<Scalars['ID']['output']>;
   readonly items: Maybe<Scalars['JSON']['output']>;
-  readonly items_func: Maybe<Count_Functions>;
   /** При нажатии на кнопку "Подробнее" */
   readonly moreDetails: Maybe<Scalars['String']['output']>;
   readonly title: Maybe<Scalars['String']['output']>;
@@ -1940,13 +2273,13 @@ export type Version_SubDirections = {
 export type Version_SubDirections_DirectionItem = {
   readonly __typename?: 'version_subDirections_directionItem';
   readonly directionItem_id: Maybe<Scalars['JSON']['output']>;
-  readonly id: Scalars['ID']['output'];
+  readonly id: Maybe<Scalars['ID']['output']>;
   readonly subDirections_id: Maybe<Scalars['JSON']['output']>;
 };
 
-export type DirectionsFragmentFragment = { readonly __typename?: 'directions', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'directions_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean, readonly value: string } }>, readonly subDirections: ReadonlyArray<{ readonly __typename?: 'directions_subDirections', readonly id: string, readonly subDirections_id: { readonly __typename?: 'subDirections', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'subDirections_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean, readonly value: string } }> } }> };
+export type DirectionsFragmentFragment = { readonly __typename?: 'directions', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'directions_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean, readonly is_fromPrice: boolean, readonly value: string } }>, readonly subDirections: ReadonlyArray<{ readonly __typename?: 'directions_subDirections', readonly id: string, readonly subDirections_id: { readonly __typename?: 'subDirections', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'subDirections_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean, readonly is_fromPrice: boolean, readonly value: string } }> } }> };
 
-export type ServiceFragmentFragment = { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean, readonly value: string };
+export type ServiceFragmentFragment = { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean, readonly is_fromPrice: boolean, readonly value: string };
 
 export type SliderFragmentFragment = { readonly __typename?: 'services_files', readonly id: string, readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly width: number, readonly height: number } };
 
@@ -1955,7 +2288,7 @@ export type GetServicesItemQueryVariables = Exact<{
 }>;
 
 
-export type GetServicesItemQuery = { readonly __typename?: 'Query', readonly services_by_id: { readonly __typename?: 'services', readonly title: string, readonly slider: ReadonlyArray<{ readonly __typename?: 'services_files', readonly id: string, readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly width: number, readonly height: number } }>, readonly serviceItemBlock: ReadonlyArray<{ readonly __typename?: 'services_directions', readonly id: string, readonly directions_id: { readonly __typename?: 'directions', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'directions_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean, readonly value: string } }>, readonly subDirections: ReadonlyArray<{ readonly __typename?: 'directions_subDirections', readonly id: string, readonly subDirections_id: { readonly __typename?: 'subDirections', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'subDirections_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean, readonly value: string } }> } }> } }> } };
+export type GetServicesItemQuery = { readonly __typename?: 'Query', readonly services_by_id: { readonly __typename?: 'services', readonly title: string, readonly slider: ReadonlyArray<{ readonly __typename?: 'services_files', readonly id: string, readonly directus_files_id: { readonly __typename?: 'directus_files', readonly id: string, readonly width: number, readonly height: number } }>, readonly serviceItemBlock: ReadonlyArray<{ readonly __typename?: 'services_directions', readonly id: string, readonly directions_id: { readonly __typename?: 'directions', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'directions_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean, readonly is_fromPrice: boolean, readonly value: string } }>, readonly subDirections: ReadonlyArray<{ readonly __typename?: 'directions_subDirections', readonly id: string, readonly subDirections_id: { readonly __typename?: 'subDirections', readonly id: string, readonly title: string, readonly moreDetails: string, readonly items: ReadonlyArray<{ readonly __typename?: 'subDirections_directionItem', readonly id: string, readonly directionItem_id: { readonly __typename?: 'directionItem', readonly id: string, readonly title: string, readonly desc: string, readonly price: number, readonly sale: number, readonly is_new: boolean, readonly is_fromPrice: boolean, readonly value: string } }> } }> } }> } };
 
 export type GetServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1970,6 +2303,7 @@ export const ServiceFragmentFragmentDoc = gql`
   price
   sale
   is_new
+  is_fromPrice
   value
 }
     `;

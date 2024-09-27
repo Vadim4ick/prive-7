@@ -28,25 +28,34 @@ const DirectionItem = memo(({ item, type = "default" }: Props) => {
     </div>
   );
 
-  const PriceSection = () => (
-    <div className="flex flex-col items-end justify-start">
-      {item.sale > 0 ? (
-        <>
+  const PriceSection = () => {
+    if (item.is_fromPrice) {
+      return (
+        <div className="flex items-center gap-2 text-[16px] font-medium leading-[20px]">
+          <span>от</span> {discountPrice(item.sale, item.price, true)} ₽
+        </div>
+      );
+    }
+
+    return (
+      <div className="flex flex-col items-end justify-start">
+        {item.sale > 0 ? (
+          <>
+            <span className="text-[16px] font-medium leading-[20px]">
+              {discountPrice(item.sale, item.price, true)} ₽
+            </span>
+            <span className="text-[13px] font-medium leading-[16px] text-[#8B8B8B] line-through">
+              {formatPrice(item.price)} ₽
+            </span>
+          </>
+        ) : (
           <span className="text-[16px] font-medium leading-[20px]">
-            {discountPrice(item.sale, item.price, true)} ₽
-          </span>
-          <span className="text-[13px] font-medium leading-[16px] text-[#8B8B8B] line-through">
             {formatPrice(item.price)} ₽
           </span>
-        </>
-      ) : (
-        <span className="text-[16px] font-medium leading-[20px]">
-          {formatPrice(item.price)} ₽
-        </span>
-      )}
-    </div>
-  );
-
+        )}
+      </div>
+    );
+  };
   if (type === "accordion") {
     return (
       <>
@@ -65,6 +74,7 @@ const DirectionItem = memo(({ item, type = "default" }: Props) => {
             )}
           </div>
         </div>
+
         <PriceSection />
       </>
     );
