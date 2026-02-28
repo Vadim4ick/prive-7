@@ -35,7 +35,7 @@ const HomePage = memo(() => {
           </h1>
         </div>
 
-        <div className="grid grid-cols-2 gap-[20px]">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(325px,1fr))] gap-[20px]">
           {data &&
             data.services.map((item) => {
               return <CartService key={item.title} item={item} />;

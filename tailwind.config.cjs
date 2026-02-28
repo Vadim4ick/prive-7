@@ -8,7 +8,7 @@ module.exports = {
       center: true,
       padding: "20px",
       screens: {
-        DEFAULT: "686px",
+        DEFAULT: "1400px",
       },
     },
 

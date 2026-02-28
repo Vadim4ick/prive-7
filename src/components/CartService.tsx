@@ -8,7 +8,7 @@ const CartService = memo(
     return (
       <Link
         to={`/service/${item.id}`}
-        className="relative h-[373px] overflow-hidden rounded-[20px] bg-white"
+        className="relative h-[450px] overflow-hidden rounded-[20px] bg-white"
       >
         <div className="p-[18px]">
           <div className="flex flex-col gap-[16px]">
