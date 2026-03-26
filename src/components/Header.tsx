@@ -5,8 +5,8 @@ import { memo } from "react";
 
 const Header = memo(({ title }: { title: string | undefined }) => {
   return (
-    <header className="fixed z-50 w-full bg-[#F4F4F4]">
-      <div className="headerLine container fixed flex h-[var(--header-height)] items-center justify-between">
+    <div className="z-50 w-full bg-[#F4F4F4]">
+      <div className="headerLine container fixed flex h-[68px] items-center justify-between">
         <div className="flex w-full items-center justify-between px-[12px]">
           <Link
             to={"/"}
@@ -25,7 +25,7 @@ const Header = memo(({ title }: { title: string | undefined }) => {
           </p>
         </div>
       </div>
-    </header>
+    </div>
   );
 });
 

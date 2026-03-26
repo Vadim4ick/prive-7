@@ -4,6 +4,7 @@ import { Logo } from "../shared/icons/Logo";
 import { GetServicesDocument, GetServicesQuery } from "@/graphql/__generated__";
 import { useQuery } from "@apollo/client";
 import { Loader } from "@/components/ui/loader";
+import { NewHeader } from "@/components/NewHeader";
 
 export interface ServiceItem {
   id: number | string;
@@ -25,24 +26,28 @@ const HomePage = memo(() => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <main className="min-h-screen bg-[#EDEDED] pb-[48px]">
-      <div className="container">
-        <div className="flex flex-col items-center justify-center gap-[32px] py-[32px]">
-          <Logo className="h-[32px]" />
+    <>
+      <NewHeader />
 
-          <h1 className="text-[32px] font-semibold leading-[38px]">
-            Выберите услугу
-          </h1>
-        </div>
+      <main className="min-h-screen bg-[#EDEDED] pb-[48px] pt-[var(--header-height)]">
+        <div className="container">
+          <div className="flex flex-col items-center justify-center gap-[32px] py-[32px]">
+            <Logo className="h-[32px]" />
 
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(325px,1fr))] gap-[20px]">
-          {data &&
-            data.services.map((item) => {
-              return <CartService key={item.title} item={item} />;
-            })}
+            <h1 className="text-[32px] font-semibold leading-[38px]">
+              Выберите услугу
+            </h1>
+          </div>
+
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(325px,1fr))] gap-[20px]">
+            {data &&
+              data.services.map((item) => {
+                return <CartService key={item.title} item={item} />;
+              })}
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 });
 

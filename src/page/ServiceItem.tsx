@@ -17,6 +17,7 @@ import React, {
 } from "react";
 import { ButtonScroll } from "@/components/ButtonScroll";
 import { Loader } from "@/components/ui/loader";
+import { NewHeader } from "@/components/NewHeader";
 
 const ServiceItem = memo(() => {
   const { id } = useParams();
@@ -88,39 +89,42 @@ const ServiceItem = memo(() => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <main className="min-h-screen bg-[#F4F4F4]">
-      <Header title={data?.services_by_id.title} />
+    <>
+      <NewHeader className={"bg-[#F4F4F4]"} />
 
-      <div className="pt-[var(--header-height)_+_48px]">
-        <div className="container">
-          <section className="pt-[calc(var(--header-height)_+_24px)]">
-            <h2 className="second-family pb-[20px] text-center text-[40px] font-semibold leading-[44px]">
-              {data?.services_by_id.title}
-            </h2>
+      <main className="min-h-screen bg-[#F4F4F4] pt-[calc(var(--header-height)_+_28px)]">
+        <Header title={data?.services_by_id.title} />
 
-            {data && data.services_by_id.slider && (
-              <div className="pb-[20px]">
-                <SliderBanner slider={data.services_by_id.slider} />
+        <div>
+          <div className="container">
+            <section className="pt-[28px]">
+              <h2 className="second-family pb-[20px] text-center text-[40px] font-semibold leading-[44px]">
+                {data?.services_by_id.title}
+              </h2>
+
+              {data && data.services_by_id.slider && (
+                <div className="pb-[20px]">
+                  <SliderBanner slider={data.services_by_id.slider} />
+                </div>
+              )}
+
+              <div className="grid grid-cols-2 gap-[18px]">
+                {titlesAndIds.length > 0 && buttonScroll}
               </div>
-            )}
+            </section>
 
-            <div className="grid grid-cols-2 gap-[18px]">
-              {titlesAndIds.length > 0 && buttonScroll}
-            </div>
-          </section>
-
-          <div className="flex flex-col px-1 pb-[200px]">
-            {data &&
-              data.services_by_id.serviceItemBlock.map((el) => {
-                return (
-                  <Direction
-                    key={el.id}
-                    el={el.directions_id}
-                    refs={sectionRefs}
-                  />
-                );
-              })}
-            {/* {data &&
+            <div className="flex flex-col px-1 pb-[200px]">
+              {data &&
+                data.services_by_id.serviceItemBlock.map((el) => {
+                  return (
+                    <Direction
+                      key={el.id}
+                      el={el.directions_id}
+                      refs={sectionRefs}
+                    />
+                  );
+                })}
+              {/* {data &&
               data.services_by_id.serviceItemDirections.map((el) => {
                 if (el.item.__typename === "directions") {
                   return (
@@ -130,10 +134,11 @@ const ServiceItem = memo(() => {
                   return <AccordionSection key={el.id} el={el.item} />;
                 }
               })} */}
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 });
 
