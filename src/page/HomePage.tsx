@@ -5,6 +5,7 @@ import { GetServicesDocument, GetServicesQuery } from "@/graphql/__generated__";
 import { useQuery } from "@apollo/client";
 import { Loader } from "@/components/ui/loader";
 import { NewHeader } from "@/components/NewHeader";
+import { QueryError } from "@/components/QueryError";
 
 export interface ServiceItem {
   id: number | string;
@@ -23,7 +24,7 @@ const HomePage = memo(() => {
         <Loader className="absolute left-1/2 top-1/2 size-10" />
       </div>
     );
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <QueryError error={error} operationName="GetServices" />;
 
   return (
     <>

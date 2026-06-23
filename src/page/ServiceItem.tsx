@@ -18,6 +18,7 @@ import React, {
 import { ButtonScroll } from "@/components/ButtonScroll";
 import { Loader } from "@/components/ui/loader";
 import { NewHeader } from "@/components/NewHeader";
+import { QueryError } from "@/components/QueryError";
 
 const ServiceItem = memo(() => {
   const { id } = useParams();
@@ -86,7 +87,8 @@ const ServiceItem = memo(() => {
       </div>
     );
 
-  if (error) return <p>Error: {error.message}</p>;
+  if (error)
+    return <QueryError error={error} operationName="GetServicesItem" />;
 
   return (
     <>
